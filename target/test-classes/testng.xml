@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Automation Selenium">
+    <test name="Chrome Test">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+<!--            <class name="testcases.ArticleTests"/>-->
+<!--            <class name="testcases.ContactTests"/>-->
+            <class name="testcases.BannerTests"/>
+        </classes>
+
+    </test> <!-- Test -->
+    <test name="FirefoxTest">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+
+        </classes>
+    </test>
+    <test name="EdgeTest">
+        <parameter name="browser" value="edge"/>
+        <classes>
+
+
+        </classes>
+    </test>
+
+</suite> <!-- Suite -->
