@@ -26,8 +26,8 @@ public class ContactTests extends BaseTest {
         Assert.assertEquals(contactPagePage.getTextSuccessfulMessage(), "Contact saved.", "Cannot create a contact");
     }
 
-    @Test(testName = "TC_JOOMLA_ARTICLE_004", description = "Verify user can publish a published contact")
-    public void tcJOOMLAARTICLE004() {
+    @Test(testName = "TC_JOOMLA_CONTACTS_004", description = "Verify user can publish a published contact")
+    public void tcJOOMLACONTACTS004() {
         Log.info("Verify user can publish a published contact");
         contactPagePage.publishContact();
 

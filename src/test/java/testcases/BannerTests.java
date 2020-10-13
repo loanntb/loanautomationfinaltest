@@ -25,8 +25,8 @@ public class BannerTests extends BaseTest {
         Assert.assertEquals(bannerPage.getTextSuccessfulMessage(), "Banner saved.", "Cannot create a banner");
     }
 
-    @Test(testName = "TC_JOOMLA_ARTICLE_004", description = "Verify user can publish a published banner")
-    public void tcJOOMLAARTICLE004() {
+    @Test(testName = "TC_JOOMLA_BANNERS_BANNERS_004", description = "Verify user can publish a published banner")
+    public void tcJOOMLABANNERS004() {
         Log.info("Verify user can publish a published banner");
         bannerPage.publishBanner();
 
