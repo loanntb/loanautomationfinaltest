@@ -31,5 +31,9 @@ public class DataHelper {
         return emailId;
     }
 
+    public static String randomUrl(){
+        return faker.internet().url();
+    }
+
 }
 

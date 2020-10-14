@@ -6,18 +6,13 @@ import helper.DriverHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class CategoryPage extends BannerPage {
+public class CategoriesPage extends BannersPage {
     //Locators
-    private By categoryMenu = By.cssSelector("ul li:nth-of-type(4)  .dropdown-menu.scroll-menu  .dropdown-toggle.menu-category");
     private By titleCategory = By.id("jform_title");
     private By successfulMessage = By.cssSelector(".alert-message");
 
 
     //Element
-    private WebElement getCategoryMenu() {
-        return DriverHelper.getWebDriver().findElement(categoryMenu);
-    }
-
     private WebElement getTitleCategory() {
         return DriverHelper.getWebDriver().findElement(titleCategory);
     }

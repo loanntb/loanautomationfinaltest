@@ -3,26 +3,15 @@ package pageobjects;
 import common.Constant;
 import helper.DriverHelper;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
-public class ClientPage extends BannerPage {
-    //Locators
-    private By client = By.cssSelector("#nav-empty .menu-banners-clients");
-    private By helpButton = By.cssSelector("#toolbar-help .btn-small");
+public class BannersBannersPage extends BasePage{
     private By clientName = By.id("jform_name");
     private By contactName = By.id("jform_contact");
     private By contactEmail = By.id("jform_email");
     private By successfulMessage = By.cssSelector(".alert-message");
+
     //Elements
-    private WebElement getClientPage() {
-        return DriverHelper.getWebDriver().findElement(client);
-    }
-
-    private WebElement getHelpButton() {
-        return DriverHelper.getWebDriver().findElement(helpButton);
-    }
-
     private WebElement getClientName() {
         return DriverHelper.getWebDriver().findElement(clientName);
     }
@@ -37,13 +26,7 @@ public class ClientPage extends BannerPage {
 
     //Method
     private void selectOnClientPage() {
-        clickOnMenuLevel1Tab(Constant.COMPONENTS);
-     //   Hov(menuTab.COMPONENTS);
-      //  getClientPage().click();
-    }
-
-    private void clickHelpButton() {
-        getHelpButton().click();
+        clickOnMenuLevel3Tab(Constant.COMPONENTS, Constant.BANNERS, Constant.CLIENTS);
     }
 
     private void enterClientName(String name) {
@@ -61,21 +44,12 @@ public class ClientPage extends BannerPage {
         return getTextTrim(DriverHelper.getWebDriver().findElement(successfulMessage));
     }
 
-//    public Boolean isBannerClientHelpDisplayed() {
-//        try {
-//            return ().isDisplayed();
-//        } catch (NoSuchElementException e) {
-//            return false;
-//        }
-//    }
-
     public void createNewClient(String clientName, String contactName, String contactEmail) {
         selectOnClientPage();
         clickNewButton();
         enterClientName(clientName);
         enterContactName(contactName);
-        enterContactName(contactEmail);
+        enterContactEmail(contactEmail);
         clickSaveAndCloseButton();
     }
-
 }

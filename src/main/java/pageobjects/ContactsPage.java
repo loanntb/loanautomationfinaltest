@@ -5,20 +5,16 @@ import helper.DriverHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class BannerPage extends BasePage {
+public class ContactsPage extends BasePage {
     //Locators
-    private By bannerMenu = By.cssSelector(".dropdown-toggle.menu-banners");
-    private By titleBanner = By.id("jform_name");
+    private By titleContact = By.id("jform_name");
     private By alia = By.id("jform_alias");
     private By successfulMessage = By.cssSelector(".alert-message");
 
     //Element
-    private WebElement getBannerMenu() {
-        return DriverHelper.getWebDriver().findElement(bannerMenu);
-    }
 
-    private WebElement getTitleBanner() {
-        return DriverHelper.getWebDriver().findElement(titleBanner);
+    private WebElement getTitleArticle() {
+        return DriverHelper.getWebDriver().findElement(titleContact);
     }
 
     private WebElement getAlia() {
@@ -30,24 +26,26 @@ public class BannerPage extends BasePage {
         return getTextTrim(DriverHelper.getWebDriver().findElement(successfulMessage));
     }
 
-    private void selectOnBannerMenu() {
-        clickOnMenuLevel2Tab(Constant.COMPONENTS, Constant.BANNERS);
+    private void selectOnContactMenu() {
+        clickOnMenuLevel2Tab(Constant.COMPONENTS, Constant.CONTACTS);
     }
+
     private void enterTitle(String title) {
-        getTitleBanner().sendKeys(title);
+        getTitleArticle().sendKeys(title);
     }
     private void enterAlia(String alia) {
         getAlia().sendKeys(alia);
     }
 
-
     /***
-     * Create a new banner
+     *  Create a new contact
      * @param title
      * @param alia
+     * @param status
+     * @param category
      */
-    public void createNewBanner(String title, String alia, String status, String category) {
-        selectOnBannerMenu();
+    public void createNewContact(String title, String alia, String status, String category) {
+        selectOnContactMenu();
         clickNewButton();
         enterTitle(title);
         enterAlia(alia);
@@ -59,7 +57,7 @@ public class BannerPage extends BasePage {
     /***
      *  Unpublish the first article in the article page
      */
-    public void unpublishBanner() {
+    public void unpublishContact() {
         clickCheckbox();
         clickUnpublishButton();
     }

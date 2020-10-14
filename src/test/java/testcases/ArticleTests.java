@@ -6,14 +6,14 @@ import helper.DataHelper;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pageobjects.ArticlePage;
-import pageobjects.BannerPage;
+import pageobjects.ArticlesPage;
+import pageobjects.BannersPage;
 import pageobjects.LoginPage;
 
 public class ArticleTests extends BaseTest {
-    private ArticlePage articlePage = new ArticlePage();
+    private ArticlesPage articlesPage = new ArticlesPage();
     private LoginPage loginPage = new LoginPage();
-    private BannerPage bannerPage  = new BannerPage();
+    private BannersPage bannersPage = new BannersPage();
 
     @BeforeMethod(description = "Pre-Condition: User can create new article with valid information ")
     public void articlePre() {
@@ -21,22 +21,22 @@ public class ArticleTests extends BaseTest {
         loginPage.login(Constant.USER_NAME, Constant.PASSWORD);
 
         Log.info("Create a new article");
-        articlePage.createNewArticle(DataHelper.randomString(), DataHelper.randomString(), DataHelper.randomString(), Constant.PUBLISHED_STATUS, Constant.SAMPLE_DATA_ARTICLES_CATEGORY);
+        articlesPage.createNewArticle(DataHelper.randomString(), DataHelper.randomString(), DataHelper.randomString(), Constant.PUBLISHED_STATUS, Constant.SAMPLE_DATA_ARTICLES_CATEGORY);
 
         Log.info("Verify successful message");
-        Assert.assertEquals(articlePage.getTextSuccessfulMessage(), "Article saved.", "Cannot create a article");
+        Assert.assertEquals(articlesPage.getTextSuccessfulMessage(), "Article saved.", "Cannot create a article");
 
         Log.info("Sort the article table by ID descending");
-        bannerPage.selectArrow();
+        bannersPage.selectArrow();
     }
 
     @Test(testName = "TC_JOOMLA_ARTICLE_004", description = "Verify user can unpublish a published article ")
     public void tcJoomlaArticle004() {
         Log.info("Verify user can unpublish a published article");
-        articlePage.unpublishArticle();
+        articlesPage.unpublishArticle();
 
         Log.info("Verify successful message ");
-        Assert.assertEquals(articlePage.getTextSuccessfulMessage(), "1 article unpublished.", "Cannot  unpublished a article.");
+        Assert.assertEquals(articlesPage.getTextSuccessfulMessage(), "1 article unpublished.", "Cannot  unpublished a article.");
     }
 
 }

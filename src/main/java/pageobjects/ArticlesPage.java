@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class ArticlePage extends BasePage {
+public class ArticlesPage extends BasePage {
     //Locators
     private By articleMenu = By.cssSelector(".dropdown-toggle.menu-article");
     private By titleArticle = By.id("jform_title");

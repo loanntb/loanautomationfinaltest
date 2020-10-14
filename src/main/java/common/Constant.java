@@ -28,6 +28,7 @@ public class Constant {
     public static final String BANNERS = "Banners";
     public static final String CONTACTS = "Contacts";
     public static final String ARTICLES = "Articles";
+    public static final String WEBLINKS = "Web Links";
     //Nav Menu Level 3
     public static final String CLIENTS = "Clients";
 }

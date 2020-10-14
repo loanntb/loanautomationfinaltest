@@ -10,6 +10,7 @@ public class BasePage {
     //Locators
     private String menuLevel1Tab = "//ul[@id='menu']/li/a[normalize-space(text())='%s']";
     private String menuLevel2Tab = "//ul[@id='menu']/li/a[normalize-space(text())='%s']/following-sibling::ul/li/a[normalize-space(text())='%s']";
+    private String menuLevel3Tab = "//ul[@id='menu']/li/a[normalize-space(text())='%s']/following-sibling::ul/li/a[normalize-space(text())='%s']/following-sibling::ul/li/a[normalize-space(text())='%s']";
     private By newButton = By.id("toolbar-new");
     private By saveAndCloseButton = By.xpath("//div[@id='toolbar-save']/button[@class='btn btn-small button-save']");
     private By publishButton = By.id("toolbar-publish");
@@ -33,14 +34,22 @@ public class BasePage {
         return DriverHelper.getWebDriver().findElement(By.xpath(String.format(menuLevel1Tab, value)));
     }
     private String getTextMenuLevel1Tab(String value) {
-        Log.info("Menu Level 1" + getTextTrim(getMenuLevel1Tab(value)));
+        Log.info("Menu Level 1: " + getTextTrim(getMenuLevel1Tab(value)));
         return getTextTrim(getMenuLevel1Tab(value));
     }
+
     private WebElement getMenuLevel2Tab(String level1, String level2) {
-        Log.info("Menu Level 2" + DriverHelper.getWebDriver().findElement(By.xpath(String.format(menuLevel2Tab, getTextMenuLevel1Tab(level1), level2))));
-        return DriverHelper.getWebDriver().findElement(By.xpath(String.format(menuLevel2Tab, getTextMenuLevel1Tab(level1), level2)));
+        return DriverHelper.getWebDriver().findElement(By.xpath(String.format(menuLevel2Tab, level1, level2)));
     }
 
+    private String getTextMenuLevel2Tab(String level1, String level2) {
+        Log.info("Menu Level 2: " + getTextTrim(getMenuLevel2Tab(level1, level2)));
+        return getTextTrim(getMenuLevel2Tab(level1, level2));
+    }
+    private WebElement getMenuLevel3Tab(String level1, String level2, String level3) {
+        Log.info("Menu Level 3: " + DriverHelper.getWebDriver().findElement(By.xpath(String.format(menuLevel3Tab, level1, level2, level3))));
+        return DriverHelper.getWebDriver().findElement(By.xpath(String.format(menuLevel3Tab, level1, level2, level3)));
+    }
     private WebElement getSaveAndCloseButton() {
         return DriverHelper.getWebDriver().findElement(saveAndCloseButton);
     }
@@ -103,7 +112,7 @@ public class BasePage {
     //Methods
 
     /***
-     * Select on Menu Tabs
+     * Select on Menu Level 1 Tabs
      * @param value
      */
     public void clickOnMenuLevel1Tab(String value) {
@@ -111,19 +120,45 @@ public class BasePage {
     }
 
     /***
-     * Hover on menu
-     * @param menu
+     * Select on Menu Level 2 Tabs
+     * @param level1
+     * @param level2
      */
-    public void hoverOnMenuLevel1Tab(String menu) {
-        Actions actions = new Actions(DriverHelper.getWebDriver());
-        actions.moveToElement(getMenuLevel1Tab(menu)).perform();
-    }
-
     public void clickOnMenuLevel2Tab(String level1, String level2){
         clickOnMenuLevel1Tab(level1);
         getMenuLevel2Tab(level1, level2).click();
     }
+    /***
+     * Hover on Menu Level 2
+     * @param level1
+     *  @param level2
+     */
+    public void hoverOnMenuLevel2Tab(String level1, String level2) {
+        Actions actions = new Actions(DriverHelper.getWebDriver());
+        actions.moveToElement(getMenuLevel2Tab(level1, level2)).perform();
+    }
 
+    /***
+     * Hover on Menu Level 3
+     * @param level1
+     * @param level2
+     * @param level3
+     */
+    public void hoverOnMenuLevel3Tab(String level1, String level2, String level3 ) {
+        Actions actions = new Actions(DriverHelper.getWebDriver());
+        actions.moveToElement(getMenuLevel3Tab(level1, level2, level3)).perform();
+    }
+    /***
+     * Select on Menu Level 3 Tabs
+     * @param level1
+     * @param level2
+     * @param level3
+     */
+    public void clickOnMenuLevel3Tab(String level1, String level2, String level3){
+        clickOnMenuLevel1Tab(level1);
+        hoverOnMenuLevel2Tab(level1, level2);
+        getMenuLevel3Tab(level1, level2, level3).click();
+    }
     public void clickNewButton() {
         getNewButton().click();
     }
