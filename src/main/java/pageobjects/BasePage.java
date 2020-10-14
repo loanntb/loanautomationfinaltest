@@ -16,8 +16,9 @@ public class BasePage {
     private By newButton = By.id("toolbar-new");
     private By saveAndCloseButton = By.xpath("//div[@id='toolbar-save']/button[@class='btn btn-small button-save']");
     private By publishButton = By.id("toolbar-publish");
+    private By unpublishButton = By.id("toolbar-unpublish");
     private By checkBox = By.cssSelector("tr:first-child input[name='cid[]']");
-    private By status = By.cssSelector("#jform_state_chzn .chzn-color-state.chzn-single");
+    private By status = By.cssSelector(".chzn-color-state.chzn-single");
     private String elementStatus = "//div[@class='chzn-drop']//li[contains(text(),'%s')]";
     private By category = By.cssSelector("#jform_catid_chzn .chzn-single");
     private String valueCategory = "//div[@id='jform_catid_chzn']//span[contains(text(), '%s')]";
@@ -39,6 +40,9 @@ public class BasePage {
 
     private WebElement getPublishButton() {
         return DriverHelper.getWebDriver().findElement(publishButton);
+    }
+    private WebElement getUnpublishButton() {
+        return DriverHelper.getWebDriver().findElement(unpublishButton);
     }
 
     private WebElement getCheckBox() {
@@ -91,7 +95,9 @@ public class BasePage {
     public void clickPublishButton() {
         getPublishButton().click();
     }
-
+    public void clickUnpublishButton() {
+        getUnpublishButton().click();
+    }
     public void selectStatus(String status){
         getStatus().click();
         getElementStatus(status).click();

@@ -10,6 +10,7 @@ public class Constant {
     public static final String PASSWORD = "loan123";
 
 
-    public static final String STATUS = "Unpublished";
-    public static final String CATEGORY = "Sample Data-Banners";
+    public static final String UNPUBLISHED_STATUS = "Unpublished";
+    public static final String PUBLISHED_STATUS = "Published";
+    public static final String SAMPLE_DATA_BANNERS_CATEGORY = "Sample Data-Banners";
 }
