@@ -23,6 +23,9 @@ public class BannerTests extends BaseTest {
 
         Log.info("Verify successful message");
         Assert.assertEquals(bannerPage.getTextSuccessfulMessage(), "Banner saved.", "Cannot create a banner");
+
+        Log.info("Sort the banner table by ID descending");
+        bannerPage.selectArrow();
     }
 
     @Test(testName = "TC_JOOMLA_BANNERS_BANNERS_004", description = "Verify that user can unpublish a banner")

@@ -7,11 +7,13 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pageobjects.ArticlePage;
+import pageobjects.BannerPage;
 import pageobjects.LoginPage;
 
 public class ArticleTests extends BaseTest {
     private ArticlePage articlePage = new ArticlePage();
     private LoginPage loginPage = new LoginPage();
+    private BannerPage bannerPage  = new BannerPage();
 
     @BeforeMethod(description = "Pre-Condition: User can create new article with valid information ")
     public void articlePre() {
@@ -23,6 +25,9 @@ public class ArticleTests extends BaseTest {
 
         Log.info("Verify successful message");
         Assert.assertEquals(articlePage.getTextSuccessfulMessage(), "Article saved.", "Cannot create a article");
+
+        Log.info("Sort the article table by ID descending");
+        bannerPage.selectArrow();
     }
 
     @Test(testName = "TC_JOOMLA_CONTACTS_004", description = "Verify user can unpublish a published article ")

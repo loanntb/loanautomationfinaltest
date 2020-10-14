@@ -4,6 +4,10 @@ import helper.DriverHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class ArticlePage extends BasePage {
     //Locators
     private By articleMenu = By.cssSelector(".dropdown-toggle.menu-article");
@@ -11,6 +15,7 @@ public class ArticlePage extends BasePage {
     private By alia = By.id("jform_alias");
     private By contentArticleTab = By.id("jform_articletext_ifr");
     private By successfulMessage = By.cssSelector(".alert-message");
+    private By idCol = By.cssSelector("a[data-name='ID']");
 
     //Element
     private WebElement getArticleMenu() {
@@ -20,17 +25,21 @@ public class ArticlePage extends BasePage {
     private WebElement getTitleArticle() {
         return DriverHelper.getWebDriver().findElement(titleArticle);
     }
+
     private WebElement getAlia() {
         return DriverHelper.getWebDriver().findElement(alia);
     }
+
     private WebElement getContentArticleTab() {
         return DriverHelper.getWebDriver().findElement(contentArticleTab);
     }
+
 
     //Method
     public String getTextSuccessfulMessage() {
         return getTextTrim(DriverHelper.getWebDriver().findElement(successfulMessage));
     }
+
     private void selectOnArticleMenu() {
         clickOnTab(menuTab.CONTENT);
         getArticleMenu().click();
@@ -55,7 +64,7 @@ public class ArticlePage extends BasePage {
      * @param title
      * @param content
      */
-    public void createNewArticle(String title, String content,String alia, String status, String category){
+    public void createNewArticle(String title, String content, String alia, String status, String category) {
         selectOnArticleMenu();
         clickNewButton();
         enterTitle(title);

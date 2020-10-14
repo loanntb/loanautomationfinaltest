@@ -4,6 +4,7 @@ import helper.DriverHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class BasePage {
     public enum menuTab {
@@ -22,14 +23,20 @@ public class BasePage {
     private String elementStatus = "//div[@class='chzn-drop']//li[contains(text(),'%s')]";
     private By category = By.cssSelector("#jform_catid_chzn .chzn-single");
     private String valueCategory = "//div[@id='jform_catid_chzn']//span[contains(text(), '%s')]";
+    private By idCol = By.cssSelector("a[data-order='a.id']");
+    private By arrowDown = By.cssSelector("icon-arrow-down-3");
+    private By arrowUp = By.cssSelector(".icon-arrow-up-3");
+
 
     //Element
-    private WebElement getContentTab(){
+    private WebElement getContentTab() {
         return DriverHelper.getWebDriver().findElement(contentTab);
     }
-    private WebElement getComponentsTab(){
+
+    private WebElement getComponentsTab() {
         return DriverHelper.getWebDriver().findElement(componentsTab);
     }
+
     private WebElement getSaveAndCloseButton() {
         return DriverHelper.getWebDriver().findElement(saveAndCloseButton);
     }
@@ -41,6 +48,7 @@ public class BasePage {
     private WebElement getPublishButton() {
         return DriverHelper.getWebDriver().findElement(publishButton);
     }
+
     private WebElement getUnpublishButton() {
         return DriverHelper.getWebDriver().findElement(unpublishButton);
     }
@@ -52,14 +60,27 @@ public class BasePage {
     private WebElement getStatus() {
         return DriverHelper.getWebDriver().findElement(status);
     }
-    private WebElement getElementStatus(String status){
+
+    private WebElement getElementStatus(String status) {
         return DriverHelper.getWebDriver().findElement(By.xpath(String.format(elementStatus, status)));
     }
+
     private WebElement getCategory() {
         return DriverHelper.getWebDriver().findElement(category);
     }
-    private WebElement getValueCategory(String value){
+
+    private WebElement getValueCategory(String value) {
         return DriverHelper.getWebDriver().findElement(By.xpath(String.format(valueCategory, value)));
+    }
+    private WebElement getIDColumn() {
+        return DriverHelper.getWebDriver().findElement(idCol);
+    }
+    private WebElement getArrowUp() {
+        return DriverHelper.getWebDriver().findElement(arrowUp);
+    }
+
+    private WebElement getArrowDown() {
+        return DriverHelper.getWebDriver().findElement(arrowDown);
     }
 
     //Methods
@@ -84,6 +105,7 @@ public class BasePage {
     public void clickNewButton() {
         getNewButton().click();
     }
+
     public void clickSaveAndCloseButton() {
         getSaveAndCloseButton().click();
     }
@@ -95,17 +117,32 @@ public class BasePage {
     public void clickPublishButton() {
         getPublishButton().click();
     }
+
     public void clickUnpublishButton() {
         getUnpublishButton().click();
     }
-    public void selectStatus(String status){
+
+    public void selectStatus(String status) {
         getStatus().click();
         getElementStatus(status).click();
     }
-    public void selectValueCategory(String value){
+
+    public void selectValueCategory(String value) {
         getCategory().click();
         getValueCategory(value).click();
     }
+    public void clickIDColumn(){
+        getIDColumn().click();
+    }
+    public void selectArrow() {
+        clickIDColumn();
+        if (getArrowUp().isDisplayed()) {
+            getArrowUp().click();
+        } else {
+            getArrowDown().click();
+        }
+    }
+
     /***
      * Get text and trim space
      * @param element
