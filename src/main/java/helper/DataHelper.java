@@ -14,6 +14,22 @@ public class DataHelper {
         return  faker.lorem().sentence();
     }
 
+    /***
+     * random contact name
+     * @return
+     */
+    public static String randomName(){
+       return faker.name().fullName();
+    }
+
+    /***
+     * random valid email
+     * @return
+     */
+    public static String randomEmail() {
+        String emailId = faker.internet().emailAddress();
+        return emailId;
+    }
 
 }
 

@@ -1,5 +1,6 @@
 package pageobjects;
 
+import common.Constant;
 import helper.DriverHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -41,8 +42,7 @@ public class ArticlePage extends BasePage {
     }
 
     private void selectOnArticleMenu() {
-        clickOnTab(menuTab.CONTENT);
-        getArticleMenu().click();
+        clickOnMenuLevel2Tab(Constant.CONTENT, Constant.ARTICLES);
     }
 
 

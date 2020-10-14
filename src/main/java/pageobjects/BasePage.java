@@ -1,24 +1,22 @@
 package pageobjects;
 
+import common.Log;
 import helper.DriverHelper;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.interactions.Actions;
 
 public class BasePage {
-    public enum menuTab {
-        CONTENT, COMPONENTS;
-    }
-
     //Locators
-    private By contentTab = By.xpath("//ul[@id='menu']//a[contains(text(),'Content')]");
-    private By componentsTab = By.xpath("//ul[@id='menu']//a[contains(text(),'Components ')]");
+    private String menuLevel1Tab = "//ul[@id='menu']/li/a[normalize-space(text())='%s']";
+    private String menuLevel2Tab = "//ul[@id='menu']/li/a[normalize-space(text())='%s']/following-sibling::ul/li/a[normalize-space(text())='%s']";
     private By newButton = By.id("toolbar-new");
     private By saveAndCloseButton = By.xpath("//div[@id='toolbar-save']/button[@class='btn btn-small button-save']");
     private By publishButton = By.id("toolbar-publish");
     private By unpublishButton = By.id("toolbar-unpublish");
     private By archiveButton = By.id("toolbar-archive");
+    private By cancelButton = By.cssSelector(".button-cancel");
+    private By saveAndNewButton = By.cssSelector(".button-save-new");
     private By checkBox = By.cssSelector("tr:first-child input[name='cid[]']");
     private By status = By.cssSelector(".chzn-color-state.chzn-single");
     private String elementStatus = "//div[@class='chzn-drop']//li[contains(text(),'%s')]";
@@ -27,15 +25,20 @@ public class BasePage {
     private By idCol = By.cssSelector("a[data-order='a.id']");
     private By arrowDown = By.cssSelector("icon-arrow-down-3");
     private By arrowUp = By.cssSelector(".icon-arrow-up-3");
+    private String navMenu = "//ul[@id='nav-empty']//a[contains(text(), '%s')]";
 
 
     //Element
-    private WebElement getContentTab() {
-        return DriverHelper.getWebDriver().findElement(contentTab);
+    private WebElement getMenuLevel1Tab(String value) {
+        return DriverHelper.getWebDriver().findElement(By.xpath(String.format(menuLevel1Tab, value)));
     }
-
-    private WebElement getComponentsTab() {
-        return DriverHelper.getWebDriver().findElement(componentsTab);
+    private String getTextMenuLevel1Tab(String value) {
+        Log.info("Menu Level 1" + getTextTrim(getMenuLevel1Tab(value)));
+        return getTextTrim(getMenuLevel1Tab(value));
+    }
+    private WebElement getMenuLevel2Tab(String level1, String level2) {
+        Log.info("Menu Level 2" + DriverHelper.getWebDriver().findElement(By.xpath(String.format(menuLevel2Tab, getTextMenuLevel1Tab(level1), level2))));
+        return DriverHelper.getWebDriver().findElement(By.xpath(String.format(menuLevel2Tab, getTextMenuLevel1Tab(level1), level2)));
     }
 
     private WebElement getSaveAndCloseButton() {
@@ -58,6 +61,13 @@ public class BasePage {
         return DriverHelper.getWebDriver().findElement(archiveButton);
     }
 
+    private WebElement getCancelButton() {
+        return DriverHelper.getWebDriver().findElement(cancelButton);
+    }
+
+    private WebElement getSaveAndNewButton() {
+        return DriverHelper.getWebDriver().findElement(saveAndNewButton);
+    }
     private WebElement getCheckBox() {
         return DriverHelper.getWebDriver().findElement(checkBox);
     }
@@ -90,24 +100,28 @@ public class BasePage {
         return DriverHelper.getWebDriver().findElement(arrowDown);
     }
 
-
     //Methods
 
     /***
-     * Clicking on Menu Tabs
-     * @param tabName
+     * Select on Menu Tabs
+     * @param value
      */
-    public void clickOnTab(menuTab tabName) {
-        switch (tabName) {
-            case CONTENT:
-                getContentTab().click();
-                break;
-            case COMPONENTS:
-                getComponentsTab().click();
-                break;
-            default:
-                break;
-        }
+    public void clickOnMenuLevel1Tab(String value) {
+       getMenuLevel1Tab(value).click();
+    }
+
+    /***
+     * Hover on menu
+     * @param menu
+     */
+    public void hoverOnMenuLevel1Tab(String menu) {
+        Actions actions = new Actions(DriverHelper.getWebDriver());
+        actions.moveToElement(getMenuLevel1Tab(menu)).perform();
+    }
+
+    public void clickOnMenuLevel2Tab(String level1, String level2){
+        clickOnMenuLevel1Tab(level1);
+        getMenuLevel2Tab(level1, level2).click();
     }
 
     public void clickNewButton() {
@@ -134,6 +148,13 @@ public class BasePage {
         getUnpublishButton().click();
     }
 
+    public void clickCancelButton() {
+        getCancelButton().click();
+    }
+
+    public void clickSaveAndNewButton() {
+        getSaveAndNewButton().click();
+    }
     public void selectStatus(String status) {
         getStatus().click();
         getElementStatus(status).click();
@@ -143,6 +164,7 @@ public class BasePage {
         getCategory().click();
         getValueCategory(value).click();
     }
+
 
     public void clickIDColumn() {
         getIDColumn().click();

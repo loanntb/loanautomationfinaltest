@@ -1,5 +1,6 @@
 package pageobjects;
 
+import common.Constant;
 import helper.DriverHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -30,8 +31,7 @@ public class BannerPage extends BasePage {
     }
 
     private void selectOnBannerMenu() {
-        clickOnTab(BasePage.menuTab.COMPONENTS);
-        getBannerMenu().click();
+        clickOnMenuLevel2Tab(Constant.COMPONENTS, Constant.BANNERS);
     }
     private void enterTitle(String title) {
         getTitleBanner().sendKeys(title);

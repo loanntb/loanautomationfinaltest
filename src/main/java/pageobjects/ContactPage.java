@@ -1,21 +1,17 @@
 package pageobjects;
 
-import helper.DataHelper;
+import common.Constant;
 import helper.DriverHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class ContactPage extends BasePage {
     //Locators
-    private By contactMenu = By.cssSelector(".dropdown-toggle.menu-contact");
     private By titleContact = By.id("jform_name");
     private By alia = By.id("jform_alias");
     private By successfulMessage = By.cssSelector(".alert-message");
 
     //Element
-    private WebElement getContactMenu() {
-        return DriverHelper.getWebDriver().findElement(contactMenu);
-    }
 
     private WebElement getTitleArticle() {
         return DriverHelper.getWebDriver().findElement(titleContact);
@@ -31,8 +27,7 @@ public class ContactPage extends BasePage {
     }
 
     private void selectOnContactMenu() {
-        clickOnTab(menuTab.COMPONENTS);
-        getContactMenu().click();
+        clickOnMenuLevel2Tab(Constant.COMPONENTS, Constant.CONTACTS);
     }
 
     private void enterTitle(String title) {

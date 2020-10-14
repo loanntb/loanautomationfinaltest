@@ -20,4 +20,14 @@ public class Constant {
     public static final String SAMPLE_DATA_CONTACT_CATEGORY = "Sample Data-Contact";
     //Sort table by
     public static final String ID_DESCENDING = "ID descending";
+    //Menu Level 1
+    public static final String COMPONENTS = "Components";
+    public static final String CONTENT = "Content";
+    //Nav Menu Level 2
+    public static final String CATEGORIES = "Categories";
+    public static final String BANNERS = "Banners";
+    public static final String CONTACTS = "Contacts";
+    public static final String ARTICLES = "Articles";
+    //Nav Menu Level 3
+    public static final String CLIENTS = "Clients";
 }
