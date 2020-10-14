@@ -8,6 +8,7 @@ public class ArticlePage extends BasePage {
     //Locators
     private By articleMenu = By.cssSelector(".dropdown-toggle.menu-article");
     private By titleArticle = By.id("jform_title");
+    private By alia = By.id("jform_alias");
     private By contentArticleTab = By.id("jform_articletext_ifr");
     private By successfulMessage = By.cssSelector(".alert-message");
 
@@ -19,7 +20,9 @@ public class ArticlePage extends BasePage {
     private WebElement getTitleArticle() {
         return DriverHelper.getWebDriver().findElement(titleArticle);
     }
-
+    private WebElement getAlia() {
+        return DriverHelper.getWebDriver().findElement(alia);
+    }
     private WebElement getContentArticleTab() {
         return DriverHelper.getWebDriver().findElement(contentArticleTab);
     }
@@ -42,17 +45,22 @@ public class ArticlePage extends BasePage {
         getContentArticleTab().sendKeys(content);
     }
 
+    private void enterAlia(String alia) {
+        getAlia().sendKeys(alia);
+    }
+
 
     /***
      *  Create a new article
      * @param title
      * @param content
      */
-    public void createNewArticle(String title, String content, String status, String category){
+    public void createNewArticle(String title, String content,String alia, String status, String category){
         selectOnArticleMenu();
         clickNewButton();
         enterTitle(title);
         enterContent(content);
+        enterAlia(alia);
         selectStatus(status);
         selectValueCategory(category);
         clickSaveAndCloseButton();
@@ -61,9 +69,9 @@ public class ArticlePage extends BasePage {
     /***
      *  Publish the first article in the article page
      */
-    public void publishArticle() {
+    public void unpublishArticle() {
         clickCheckbox();
-        clickPublishButton();
+        clickUnpublishButton();
     }
 
 }

@@ -26,12 +26,12 @@ public class ClientPage extends BannerPage {
         getHelpButton().click();
     }
 
-    public Boolean isBannerClientHelpDisplayed() {
-        try {
-            return ().isDisplayed();
-        } catch (NoSuchElementException e) {
-            return false;
-        }
-    }
+//    public Boolean isBannerClientHelpDisplayed() {
+//        try {
+//            return ().isDisplayed();
+//        } catch (NoSuchElementException e) {
+//            return false;
+//        }
+//    }
 
 }

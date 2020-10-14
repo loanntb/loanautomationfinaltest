@@ -20,19 +20,19 @@ public class ContactTests extends BaseTest {
         loginPage.login(Constant.USER_NAME, Constant.PASSWORD);
 
         Log.info("Create a new contact");
-        contactPagePage.createNewContact(DataHelper.randomString(), DataHelper.randomString(), Constant.STATUS, Constant.CATEGORY);
+        contactPagePage.createNewContact(DataHelper.randomString(), DataHelper.randomString(), Constant.PUBLISHED_STATUS, Constant.SAMPLE_DATA_CONTACT_CATEGORY);
 
         Log.info("Verify successful message");
         Assert.assertEquals(contactPagePage.getTextSuccessfulMessage(), "Contact saved.", "Cannot create a contact");
     }
 
-    @Test(testName = "TC_JOOMLA_CONTACTS_004", description = "Verify user can publish a published contact")
+    @Test(testName = "TC_JOOMLA_CONTACTS_004", description = "Verify user can unpublish a published contact")
     public void tcJOOMLACONTACTS004() {
-        Log.info("Verify user can publish a published contact");
-        contactPagePage.publishContact();
+        Log.info("Verify user can unpublish a published contact");
+        contactPagePage.unpublishContact();
 
         Log.info("Verify successful message ");
-        Assert.assertEquals(contactPagePage.getTextSuccessfulMessage(), "0 contacts published.", "Cannot publish a article");
+        Assert.assertEquals(contactPagePage.getTextSuccessfulMessage(), "1 contact unpublished.", "Cannot unpublish a contact");
     }
 
 }

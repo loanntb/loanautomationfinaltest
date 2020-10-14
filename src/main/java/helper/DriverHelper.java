@@ -1,7 +1,6 @@
 package helper;
 
 import common.Constant;
-import common.Log;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;

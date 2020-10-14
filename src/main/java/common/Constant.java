@@ -13,4 +13,6 @@ public class Constant {
     public static final String UNPUBLISHED_STATUS = "Unpublished";
     public static final String PUBLISHED_STATUS = "Published";
     public static final String SAMPLE_DATA_BANNERS_CATEGORY = "Sample Data-Banners";
+    public static final String SAMPLE_DATA_ARTICLES_CATEGORY = "Sample Data-Articles";
+    public static final String SAMPLE_DATA_CONTACT_CATEGORY = "Sample Data-Contact";
 }

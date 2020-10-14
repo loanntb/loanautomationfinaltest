@@ -59,8 +59,8 @@ public class BannerPage extends BasePage {
     /***
      *  Unpublish the first article in the article page
      */
-    public void publishBanner() {
+    public void unpublishBanner() {
         clickCheckbox();
-        clickPublishButton();
+        clickUnpublishButton();
     }
 }

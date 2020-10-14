@@ -19,19 +19,19 @@ public class ArticleTests extends BaseTest {
         loginPage.login(Constant.USER_NAME, Constant.PASSWORD);
 
         Log.info("Create a new article");
-        articlePage.createNewArticle(DataHelper.randomString(), DataHelper.randomString(), Constant.STATUS, Constant.CATEGORY);
+        articlePage.createNewArticle(DataHelper.randomString(), DataHelper.randomString(), DataHelper.randomString(), Constant.PUBLISHED_STATUS, Constant.SAMPLE_DATA_ARTICLES_CATEGORY);
 
         Log.info("Verify successful message");
         Assert.assertEquals(articlePage.getTextSuccessfulMessage(), "Article saved.", "Cannot create a article");
     }
 
-    @Test(testName = "TC_JOOMLA_CONTACTS_004", description = "Verify user can publish a published article ")
+    @Test(testName = "TC_JOOMLA_CONTACTS_004", description = "Verify user can unpublish a published article ")
     public void tcJOOMLACONTACTS004() {
-        Log.info("Verify user can publish a published article");
-        articlePage.publishArticle();
+        Log.info("Verify user can unpublish a published article");
+        articlePage.unpublishArticle();
 
         Log.info("Verify successful message ");
-        Assert.assertEquals(articlePage.getTextSuccessfulMessage(), "0 articles published.", "Cannot publish a contact");
+        Assert.assertEquals(articlePage.getTextSuccessfulMessage(), "1 article unpublished.", "Cannot  unpublished a article.");
     }
 
 }

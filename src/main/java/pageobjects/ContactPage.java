@@ -62,8 +62,8 @@ public class ContactPage extends BasePage {
     /***
      *  Unpublish the first article in the article page
      */
-    public void publishContact() {
+    public void unpublishContact() {
         clickCheckbox();
-        clickPublishButton();
+        clickUnpublishButton();
     }
 }

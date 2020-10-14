@@ -1,7 +1,6 @@
 package testcases;
 
 import common.Constant;
-import common.Log;
 import helper.DriverHelper;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
