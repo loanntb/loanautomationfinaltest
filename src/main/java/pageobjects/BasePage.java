@@ -18,6 +18,7 @@ public class BasePage {
     private By saveAndCloseButton = By.xpath("//div[@id='toolbar-save']/button[@class='btn btn-small button-save']");
     private By publishButton = By.id("toolbar-publish");
     private By unpublishButton = By.id("toolbar-unpublish");
+    private By archiveButton = By.id("toolbar-archive");
     private By checkBox = By.cssSelector("tr:first-child input[name='cid[]']");
     private By status = By.cssSelector(".chzn-color-state.chzn-single");
     private String elementStatus = "//div[@class='chzn-drop']//li[contains(text(),'%s')]";
@@ -53,6 +54,10 @@ public class BasePage {
         return DriverHelper.getWebDriver().findElement(unpublishButton);
     }
 
+    private WebElement getArchiveButton() {
+        return DriverHelper.getWebDriver().findElement(archiveButton);
+    }
+
     private WebElement getCheckBox() {
         return DriverHelper.getWebDriver().findElement(checkBox);
     }
@@ -72,9 +77,11 @@ public class BasePage {
     private WebElement getValueCategory(String value) {
         return DriverHelper.getWebDriver().findElement(By.xpath(String.format(valueCategory, value)));
     }
+
     private WebElement getIDColumn() {
         return DriverHelper.getWebDriver().findElement(idCol);
     }
+
     private WebElement getArrowUp() {
         return DriverHelper.getWebDriver().findElement(arrowUp);
     }
@@ -82,6 +89,7 @@ public class BasePage {
     private WebElement getArrowDown() {
         return DriverHelper.getWebDriver().findElement(arrowDown);
     }
+
 
     //Methods
 
@@ -118,6 +126,10 @@ public class BasePage {
         getPublishButton().click();
     }
 
+    public void clickArchiveButton() {
+        getArchiveButton().click();
+    }
+
     public void clickUnpublishButton() {
         getUnpublishButton().click();
     }
@@ -131,9 +143,11 @@ public class BasePage {
         getCategory().click();
         getValueCategory(value).click();
     }
-    public void clickIDColumn(){
+
+    public void clickIDColumn() {
         getIDColumn().click();
     }
+
     public void selectArrow() {
         clickIDColumn();
         if (getArrowUp().isDisplayed()) {

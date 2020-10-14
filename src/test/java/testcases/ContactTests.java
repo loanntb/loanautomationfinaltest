@@ -31,7 +31,7 @@ public class ContactTests extends BaseTest {
     }
 
     @Test(testName = "TC_JOOMLA_CONTACTS_004", description = "Verify user can unpublish a published contact")
-    public void tcJOOMLACONTACTS004() {
+    public void tcJoomlaContacts004() {
         Log.info("Verify user can unpublish a published contact");
         contactPagePage.unpublishContact();
 

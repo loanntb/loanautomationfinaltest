@@ -30,8 +30,8 @@ public class ArticleTests extends BaseTest {
         bannerPage.selectArrow();
     }
 
-    @Test(testName = "TC_JOOMLA_CONTACTS_004", description = "Verify user can unpublish a published article ")
-    public void tcJOOMLACONTACTS004() {
+    @Test(testName = "TC_JOOMLA_ARTICLE_004", description = "Verify user can unpublish a published article ")
+    public void tcJoomlaArticle004() {
         Log.info("Verify user can unpublish a published article");
         articlePage.unpublishArticle();
 

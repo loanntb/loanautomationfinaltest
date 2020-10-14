@@ -29,7 +29,7 @@ public class BannerTests extends BaseTest {
     }
 
     @Test(testName = "TC_JOOMLA_BANNERS_BANNERS_004", description = "Verify that user can unpublish a banner")
-    public void tcJOOMLABANNERS004() {
+    public void tcJoomlaBanners004() {
         Log.info("Verify that user can unpublish a banner");
         bannerPage.unpublishBanner();
 
