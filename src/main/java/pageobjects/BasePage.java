@@ -24,14 +24,14 @@ public class BasePage {
     private String elementStatus = "//div[@class='chzn-drop']//li[contains(text(),'%s')]";
     private By category = By.cssSelector("#jform_catid_chzn .chzn-single");
     private String contentNavTab = "//ul[@id='myTabTabs']/li/a[contains(text(),'%s')]";
-    private String valueCategory = "//div[@id='jform_catid_chzn']//span[contains(text(), '%s')]";
+    private String valueCategory = "//ul[@class='chzn-results']/li[contains(text(), '%s')]";
     private By idColLink = By.cssSelector("a[data-order='a.id']");
     private By idColumn = By.xpath("//table//td[count(//th[contains(.,'ID')]/preceding-sibling::th)+1]");
     private By arrowDown = By.cssSelector("icon-arrow-down-3");
     private By arrowUp = By.cssSelector(".icon-arrow-up-3");
     private String titleClientHelp = "//h1[.='%s']";
     private By pagingControl = By.id("list_limit_chzn");
-    private String valuePagingControl  = "//div[@id='list_limit_chzn']//span[.='%s']";
+    private String valuePagingControl  = "//div[@id='list_limit_chzn']//ul['chzn-results']/li[contains(text(), '%s')]";
 
     //Element
     private WebElement getMenuLevel1Tab(String value) {
@@ -128,7 +128,6 @@ public class BasePage {
     private WebElement getPagingControl() {
         return DriverHelper.getWebDriver().findElement(pagingControl);
     }
-
     private WebElement getValuePagingControl(String value) {
         return DriverHelper.getWebDriver().findElement(By.xpath(String.format(valuePagingControl, value)));
     }

@@ -4,6 +4,7 @@ import common.Constant;
 import helper.DriverHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.Color;
 
 public class BannersClientsPage extends BasePage {
     //Locators
@@ -32,6 +33,10 @@ public class BannersClientsPage extends BasePage {
         return DriverHelper.getWebDriver().findElement(contactEmail);
     }
 
+    private WebElement getErrorMessage(){
+        return DriverHelper.getWebDriver().findElement(errorMessage);
+    }
+
     //Method
     private void selectOnClientPage() {
         clickOnMenuLevel3Tab(Constant.COMPONENTS, Constant.BANNERS, Constant.CLIENTS);
@@ -52,6 +57,7 @@ public class BannersClientsPage extends BasePage {
     private void enterContactName(String contactName) {
         getContactName().sendKeys(contactName);
     }
+
 
     public String getTextSuccessfulMessage() {
         return getTextTrim(DriverHelper.getWebDriver().findElement(successfulMessage));
@@ -83,6 +89,13 @@ public class BannersClientsPage extends BasePage {
             return false;
         }
 
+    }
+
+    public String getColorErrorMessage(){
+        String colorString =  getErrorMessage().getCssValue("color").trim();
+        //converted Into HexFormat
+        String hexColor = Color.fromString(colorString).asHex();
+        return hexColor;
     }
 
     public void findClientBannerHelperPage(){

@@ -38,6 +38,7 @@ public class BannersClientsTest extends BaseTest {
 
         Log.info("Verify the error message");
         Assert.assertEquals(bannersClientsPage.getTextErrorMessage(), "Invalid field:  Name", "Error message was not found");
+        Assert.assertEquals(bannersClientsPage.getColorErrorMessage(), Constant.ERROR_MESSAGE_COLOR, "The color of Client name textbox does not change to red");
     }
 
 }

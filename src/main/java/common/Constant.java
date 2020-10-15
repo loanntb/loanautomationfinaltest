@@ -17,7 +17,7 @@ public class Constant {
     public static final String SAMPLE_DATA_BANNERS_CATEGORY = "Sample Data-Banners";
 
     //Article
-    public static final String SAMPLE_DATA_ARTICLES_CATEGORY = "Sample Data-Articles";
+    public static final String SAMPLE_DATA_ARTICLES_CATEGORY = "- Sample Data-Articles";
 
     //Contact
     public static final String SAMPLE_DATA_CONTACT_CATEGORY = "Sample Data-Contact";
@@ -49,6 +49,10 @@ public class Constant {
 
     //WebLinks
     public static final String _5_Paging_Control = "5";
-    public static final String ALL_Paging_Control = "ALL";
+    public static final String ALL_Paging_Control = "All";
+
+    //Color
+    public static final String ERROR_MESSAGE_COLOR = "#a94442";
+
 
 }
