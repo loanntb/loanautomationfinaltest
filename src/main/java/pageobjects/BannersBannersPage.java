@@ -5,51 +5,46 @@ import helper.DriverHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class BannersBannersPage extends BasePage{
-    private By clientName = By.id("jform_name");
-    private By contactName = By.id("jform_contact");
-    private By contactEmail = By.id("jform_email");
+public class BannersBannersPage extends BasePage {
+    private By bannerName = By.id("jform_name");
+    private By client = By.cssSelector("#jform_cid_chzn .chzn-single");
+    private String valueClient = "//div[@id='jform_cid_chzn']/a/span[.='%s']";
     private By successfulMessage = By.cssSelector(".alert-message");
 
     //Elements
-    private WebElement getClientName() {
-        return DriverHelper.getWebDriver().findElement(clientName);
+    private WebElement getBannerName() {
+        return DriverHelper.getWebDriver().findElement(bannerName);
     }
-
-    private WebElement getContactName() {
-        return DriverHelper.getWebDriver().findElement(contactName);
+    private WebElement getClient() {
+        return DriverHelper.getWebDriver().findElement(client);
     }
-
-    private WebElement getContactEmail() {
-        return DriverHelper.getWebDriver().findElement(contactEmail);
-    }
-
     //Method
-    private void selectOnClientPage() {
-        clickOnMenuLevel3Tab(Constant.COMPONENTS, Constant.BANNERS, Constant.CLIENTS);
+    private void selectOnBannersPage() {
+        clickOnMenuLevel3Tab(Constant.COMPONENTS, Constant.BANNERS, Constant.BANNERS);
+    }
+    private WebElement getValueClient(String value) {
+        return DriverHelper.getWebDriver().findElement(By.xpath(String.format(valueClient, value)));
+    }
+    private void enterBannerName(String name) {
+        getBannerName().sendKeys(name);
     }
 
-    private void enterClientName(String name) {
-        getClientName().sendKeys(name);
+    private void selectValueClient(String value) {
+        selectContentNavTab(Constant.BANNER_DETAILS);
+        getClient().click();
+        getValueClient(value).click();
     }
 
-    private void enterContactEmail(String email) {
-        getContactEmail().sendKeys(email);
-    }
-
-    private void enterContactName(String contactName) {
-        getContactName().sendKeys(contactName);
-    }
     public String getTextSuccessfulMessage() {
         return getTextTrim(DriverHelper.getWebDriver().findElement(successfulMessage));
     }
 
-    public void createNewClient(String clientName, String contactName, String contactEmail) {
-        selectOnClientPage();
+    public void createNewBanner(String categoryName, String category, String client) {
+        selectOnBannersPage();
         clickNewButton();
-        enterClientName(clientName);
-        enterContactName(contactName);
-        enterContactEmail(contactEmail);
+        enterBannerName(categoryName);
+        selectValueCategory(category);
+        selectValueClient(client);
         clickSaveAndCloseButton();
     }
 }

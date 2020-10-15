@@ -31,4 +31,10 @@ public class Constant {
     public static final String WEBLINKS = "Web Links";
     //Nav Menu Level 3
     public static final String CLIENTS = "Clients";
+    //Content Nav Tabs
+    public static final String BANNER_DETAILS = "Banner Details";
+    public static final String BROCK_LEE = "1+Brock Lee";
+    public static final String NO_CLIENT = "- No client -";
+    //Client Helper
+    public static final String COMPONENTS_BANNERS_CLIENTS = "Components Banners Clients";
 }

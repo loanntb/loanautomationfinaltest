@@ -7,11 +7,16 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pageobjects.BannersBannersPage;
+import pageobjects.BannersCategoriesPage;
+import pageobjects.BannersClientsPage;
 import pageobjects.LoginPage;
 
-public class BannersBannersTest  extends BaseTest {
+public class BannersBannersTest extends BaseTest {
     private LoginPage loginPage = new LoginPage();
     private BannersBannersPage bannersBannersPage = new BannersBannersPage();
+    private BannersClientsPage bannersClientsPage = new BannersClientsPage();
+    private BannersCategoriesPage bannersCategoriesPage = new BannersCategoriesPage();
+
     @BeforeMethod(description = "Pre-Condition: User can create new article with valid information ")
     public void articlePre() {
         Log.info("Login using new account");
@@ -21,13 +26,22 @@ public class BannersBannersTest  extends BaseTest {
     @Test(testName = "TC_JOOMLA_BANNERS_BANNERS_011", description = "Verify that user can create many banners by using Save & New button")
     public void tcJoomlaBannersBanners011() {
         Log.info("Create a client");
-        bannersBannersPage.createNewClient(DataHelper.randomString(), DataHelper.randomName(), DataHelper.randomEmail());
+        bannersClientsPage.createNewClient(DataHelper.randomString(), DataHelper.randomName(), DataHelper.randomEmail());
 
         Log.info("Verify successful message");
-        Assert.assertEquals(bannersBannersPage.getTextSuccessfulMessage(), "Client saved.", "Cannot create a client");
+        Assert.assertEquals(bannersClientsPage.getTextSuccessfulMessage(), "Client saved.", "Cannot create a client");
 
+        Log.info("Create a category");
+        bannersCategoriesPage.createNewCategory(DataHelper.randomString());
 
-//        Log.info("Verify successful message ");
-//        Assert.assertEquals(bannerPage.getTextSuccessfulMessage(), "1 banner unpublished.", "Cannot unpublish a banner");
+        Log.info("Verify successful message");
+        Assert.assertEquals(bannersCategoriesPage.getTextSuccessfulMessage(), "Category saved.", "Cannot create a category");
+
+        Log.info("Create a Banner");
+        bannersBannersPage.createNewBanner(DataHelper.randomString(), Constant.SAMPLE_DATA_BANNERS_CATEGORY, Constant.NO_CLIENT);
+
+        Log.info("Verify successful message");
+        Assert.assertEquals(bannersBannersPage.getTextSuccessfulMessage(), "Banner saved.", "Cannot create a banner");
+
     }
 }
