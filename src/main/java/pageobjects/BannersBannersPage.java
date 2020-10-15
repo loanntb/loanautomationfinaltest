@@ -47,4 +47,13 @@ public class BannersBannersPage extends BasePage {
         selectValueClient(client);
         clickSaveAndCloseButton();
     }
+
+
+    /***
+     *  Unpublish the first Banner in the Banner page
+     */
+    public void unpublishBanner() {
+        clickCheckbox();
+        clickUnpublishButton();
+    }
 }

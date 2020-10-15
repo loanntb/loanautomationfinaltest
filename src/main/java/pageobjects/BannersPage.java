@@ -7,15 +7,11 @@ import org.openqa.selenium.WebElement;
 
 public class BannersPage extends BasePage {
     //Locators
-    private By bannerMenu = By.cssSelector(".dropdown-toggle.menu-banners");
     private By titleBanner = By.id("jform_name");
     private By alia = By.id("jform_alias");
     private By successfulMessage = By.cssSelector(".alert-message");
 
     //Element
-    private WebElement getBannerMenu() {
-        return DriverHelper.getWebDriver().findElement(bannerMenu);
-    }
 
     private WebElement getTitleBanner() {
         return DriverHelper.getWebDriver().findElement(titleBanner);
@@ -57,7 +53,7 @@ public class BannersPage extends BasePage {
     }
 
     /***
-     *  Unpublish the first article in the article page
+     *  Unpublish the first Banner in the Banner page
      */
     public void unpublishBanner() {
         clickCheckbox();

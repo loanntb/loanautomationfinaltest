@@ -12,6 +12,7 @@ public class BannersClientsPage extends BasePage {
     private By contactName = By.id("jform_contact");
     private By contactEmail = By.id("jform_email");
     private By successfulMessage = By.cssSelector(".alert-message");
+    private By errorMessage = By.cssSelector(".alert-danger div");
 
 
     //Elements
@@ -54,6 +55,10 @@ public class BannersClientsPage extends BasePage {
 
     public String getTextSuccessfulMessage() {
         return getTextTrim(DriverHelper.getWebDriver().findElement(successfulMessage));
+    }
+
+    public String getTextErrorMessage() {
+        return getTextTrim(DriverHelper.getWebDriver().findElement(errorMessage));
     }
 
     /***

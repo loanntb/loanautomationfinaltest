@@ -1,10 +1,11 @@
 package pageobjects;
 
-import common.Log;
 import helper.DriverHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+
+import java.util.List;
 
 public class BasePage {
     //Locators
@@ -24,10 +25,13 @@ public class BasePage {
     private By category = By.cssSelector("#jform_catid_chzn .chzn-single");
     private String contentNavTab = "//ul[@id='myTabTabs']/li/a[contains(text(),'%s')]";
     private String valueCategory = "//div[@id='jform_catid_chzn']//span[contains(text(), '%s')]";
-    private By idCol = By.cssSelector("a[data-order='a.id']");
+    private By idColLink = By.cssSelector("a[data-order='a.id']");
+    private By idColumn = By.xpath("//table//td[count(//th[contains(.,'ID')]/preceding-sibling::th)+1]");
     private By arrowDown = By.cssSelector("icon-arrow-down-3");
     private By arrowUp = By.cssSelector(".icon-arrow-up-3");
     private String titleClientHelp = "//h1[.='%s']";
+    private By pagingControl = By.id("list_limit_chzn");
+    private String valuePagingControl  = "//div[@id='list_limit_chzn']//span[.='%s']";
 
     //Element
     private WebElement getMenuLevel1Tab(String value) {
@@ -103,7 +107,11 @@ public class BasePage {
     }
 
     private WebElement getIDColumn() {
-        return DriverHelper.getWebDriver().findElement(idCol);
+        return DriverHelper.getWebDriver().findElement(idColLink);
+    }
+
+    private List<WebElement> elements() {
+        return DriverHelper.getWebDriver().findElements(idColumn);
     }
 
     private WebElement getArrowUp() {
@@ -116,6 +124,13 @@ public class BasePage {
 
     private WebElement getTitleClientHelper(String value) {
         return DriverHelper.getWebDriver().findElement(By.xpath(String.format(titleClientHelp, value)));
+    }
+    private WebElement getPagingControl() {
+        return DriverHelper.getWebDriver().findElement(pagingControl);
+    }
+
+    private WebElement getValuePagingControl(String value) {
+        return DriverHelper.getWebDriver().findElement(By.xpath(String.format(valuePagingControl, value)));
     }
 
     //Methods
@@ -146,17 +161,6 @@ public class BasePage {
     public void hoverOnMenuLevel2Tab(String level1, String level2) {
         Actions actions = new Actions(DriverHelper.getWebDriver());
         actions.moveToElement(getMenuLevel2Tab(level1, level2)).perform();
-    }
-
-    /***
-     * Hover on Menu Level 3
-     * @param level1
-     * @param level2
-     * @param level3
-     */
-    public void hoverOnMenuLevel3Tab(String level1, String level2, String level3) {
-        Actions actions = new Actions(DriverHelper.getWebDriver());
-        actions.moveToElement(getMenuLevel3Tab(level1, level2, level3)).perform();
     }
 
     /***
@@ -213,6 +217,11 @@ public class BasePage {
         getValueCategory(value).click();
     }
 
+    public void selectValuePagingControl(String value) {
+        getPagingControl().click();
+        getValuePagingControl(value).click();
+    }
+
     public void selectContentNavTab(String value) {
         getContentNavTab(value).click();
     }
@@ -228,6 +237,42 @@ public class BasePage {
         } else {
             getArrowDown().click();
         }
+    }
+
+    /***
+     * Verify the table  by ID column
+     */
+    public void sortTableByIDColumn() {
+        clickIDColumn();
+        if (getArrowUp().isDisplayed()) {
+            getArrowUp().click();
+            verifyIdAscending();
+        } else {
+            getArrowDown().click();
+            verifyIdReverse();
+        }
+    }
+
+    public boolean verifyIdAscending() {
+        boolean boo = true;
+        for (int i = 0; i < elements().size() - 1; i++) {
+            if (Integer.parseInt(getTextTrim(elements().get(i))) > Integer.parseInt(getTextTrim(elements().get(i + 1)))) {
+                boo = false;
+                break;
+            }
+        }
+        return boo;
+    }
+
+    public boolean verifyIdReverse() {
+        boolean boo = true;
+        for (int i = 0; i < elements().size() - 1; i++) {
+            if (Integer.parseInt(getTextTrim(elements().get(i))) < Integer.parseInt(getTextTrim(elements().get(i + 1)))) {
+                boo = false;
+                break;
+            }
+        }
+        return boo;
     }
 
     /***

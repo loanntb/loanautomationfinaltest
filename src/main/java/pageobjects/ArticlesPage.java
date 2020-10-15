@@ -5,10 +5,6 @@ import helper.DriverHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 public class ArticlesPage extends BasePage {
     //Locators
     private By articleMenu = By.cssSelector(".dropdown-toggle.menu-article");
@@ -83,4 +79,12 @@ public class ArticlesPage extends BasePage {
         clickUnpublishButton();
     }
 
+    /***
+     * Sort the article table by ID column
+     */
+
+    public void sortContactByID(){
+        selectOnArticleMenu();
+        sortTableByIDColumn();
+    }
 }

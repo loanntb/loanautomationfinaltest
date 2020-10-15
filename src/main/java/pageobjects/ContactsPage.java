@@ -61,4 +61,12 @@ public class ContactsPage extends BasePage {
         clickCheckbox();
         clickUnpublishButton();
     }
+
+    /***
+     * Sort the Contact table by ID column
+     */
+    public void sortContactByID(){
+        selectOnContactMenu();
+        sortTableByIDColumn();
+    }
 }

@@ -1,8 +1,5 @@
 package helper;
 
-import common.Constant;
-import pageobjects.BannersClientsPage;
-
 import java.util.ArrayList;
 
 public class ClientHelper {

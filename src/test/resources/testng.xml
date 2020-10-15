@@ -8,8 +8,8 @@
 <!--            <class name="testcases.ContactTests"/>-->
 <!--            <class name="testcases.BannerTests"/>-->
 <!--                <class name="testcases.BannersBannersTest"/>-->
-<!--                <class name="testcases.WebLinksTest"/>-->
-            <class name="testcases.BannersClientsTest"/>
+                <class name="testcases.WebLinksTest"/>
+<!--            <class name="testcases.BannersClientsTest"/>-->
         </classes>
 
     </test> <!-- Test -->

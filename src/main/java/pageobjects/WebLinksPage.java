@@ -57,7 +57,10 @@ public class WebLinksPage extends BasePage {
         clickArchiveButton();
     }
 
-
+    public void selectPagingWebLinksControl(String value){
+        selectOnWebLinksMenu();
+        selectValuePagingControl(value);
+    }
     public String getExpectedURL() {
         Log.info("ExpectedURL: " + DriverHelper.getWebDriver().getCurrentUrl());
         return DriverHelper.getWebDriver().getCurrentUrl();
