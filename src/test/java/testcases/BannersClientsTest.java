@@ -34,6 +34,11 @@ public class BannersClientsTest extends BaseTest {
     @Test(testName = "TC_JOOMLA_BANNERS_CLIENTS_014", description = "Verify that user cannot create a new client without entering the name of the client")
     public void tcJoomlaBannersBanners014() {
         Log.info("Verify that user cannot create a new client without entering the name of the client");
+        Log.info("Open Banners Clients Page");
+        bannersClientsPage.selectOnClientPage();
+
+        Log.info("Click new button at Banners Clients Page");
+        bannersClientsPage.clickNewButton();
 
         Log.info("Create a new client without entering the name of the client");
         bannersClientsPage.createNewClient("", DataHelper.randomName(), DataHelper.randomEmail());

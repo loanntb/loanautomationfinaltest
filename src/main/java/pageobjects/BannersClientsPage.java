@@ -38,7 +38,7 @@ public class BannersClientsPage extends BasePage {
     }
 
     //Method
-    private void selectOnClientPage() {
+    public void selectOnClientPage() {
         clickOnSideBarNav(Constant.COMPONENTS, Constant.BANNERS, Constant.CLIENTS);
     }
 
@@ -74,8 +74,6 @@ public class BannersClientsPage extends BasePage {
      * @param contactEmail
      */
     public void createNewClient(String clientName, String contactName, String contactEmail) {
-        selectOnClientPage();
-        clickNewButton();
         enterClientName(clientName);
         enterContactName(contactName);
         enterContactEmail(contactEmail);

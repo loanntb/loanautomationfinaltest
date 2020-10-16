@@ -19,7 +19,7 @@ public class BannersBannersPage extends BasePage {
         return DriverHelper.getWebDriver().findElement(client);
     }
     //Method
-    private void selectOnBannersPage() {
+    public void selectOnBannersPage() {
         clickOnSideBarNav(Constant.COMPONENTS, Constant.BANNERS, Constant.BANNERS);
     }
     private WebElement getValueClient(String value) {
@@ -40,8 +40,6 @@ public class BannersBannersPage extends BasePage {
     }
 
     public void createNewBannerUsingSaveAndNew(String categoryName, String category, String client) {
-        selectOnBannersPage();
-        clickNewButton();
         enterBannerName(categoryName);
         selectValueCategory(category);
         selectValueClient(client);
@@ -49,8 +47,6 @@ public class BannersBannersPage extends BasePage {
     }
 
     public void createNewBannerUsingSaveAndClose(String categoryName, String category, String client) {
-        selectOnBannersPage();
-        clickNewButton();
         enterBannerName(categoryName);
         selectValueCategory(category);
         selectValueClient(client);

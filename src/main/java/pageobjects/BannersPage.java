@@ -43,7 +43,6 @@ public class BannersPage extends BasePage {
      * @param alia
      */
     public void createNewBanner(String title, String alia, String status, String category) {
-        clickNewButton();
         enterTitle(title);
         enterAlia(alia);
         selectStatus(status);

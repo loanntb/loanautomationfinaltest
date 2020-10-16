@@ -26,6 +26,9 @@ public class ArticleTests extends BaseTest {
 
     @Test(testName = "TC_JOOMLA_ARTICLE_004", description = "Verify user can unpublish a published article ")
     public void tcJoomlaArticle004() {
+        Log.info("Click new button");
+        articlesPage.clickNewButton();
+
         Log.info("Create a new article");
         articlesPage.createNewArticle(DataHelper.randomString(), DataHelper.randomString(), DataHelper.randomString(), Constant.PUBLISHED_STATUS, Constant.SAMPLE_DATA_ARTICLES_CATEGORY);
 

@@ -56,7 +56,6 @@ public class ArticlesPage extends BasePage {
      * @param content
      */
     public void createNewArticle(String title, String content, String alia, String status, String category) {
-        clickNewButton();
         enterTitle(title);
         enterContent(content);
         enterAlia(alia);

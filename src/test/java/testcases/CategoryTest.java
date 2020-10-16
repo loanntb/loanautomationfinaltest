@@ -27,6 +27,11 @@ public class CategoryTest extends BaseTest {
 
     @Test(testName = "TC_JOOMLA_CATEGORY_MANAGER_005", description = "Verify that user can archive a category ")
     public void tcJoomplaCategoryManager005() {
+        Log.info("Verify that user can archive a category");
+
+        Log.info("Click on the new button");
+        categoriesPage.clickNewButton();
+
         Log.info("Create a new article");
         categoriesPage.createNewCategory(DataHelper.randomString());
 

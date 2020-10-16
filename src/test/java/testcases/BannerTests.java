@@ -24,6 +24,11 @@ public class BannerTests extends BaseTest {
 
     @Test(testName = "TC_JOOMLA_BANNERS_004", description = "Verify that user can unpublish a banner")
     public void tcJoomlaBanners004() {
+        Log.info("Verify that user can unpublish a banner");
+
+        Log.info("Click on the new button");
+        bannersPage.clickNewButton();
+
         Log.info("Create a new banner");
         bannersPage.createNewBanner(DataHelper.randomString(), DataHelper.randomString(), Constant.PUBLISHED_STATUS, Constant.SAMPLE_DATA_BANNERS_CATEGORY);
 

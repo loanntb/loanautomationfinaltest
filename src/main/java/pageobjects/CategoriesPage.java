@@ -38,7 +38,6 @@ public class CategoriesPage extends BannersPage {
      * @param title
      */
     public void createNewCategory(String title) {
-        clickNewButton();
         enterTitle(title);
         clickSaveAndCloseButton();
     }

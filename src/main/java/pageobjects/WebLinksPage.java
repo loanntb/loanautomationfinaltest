@@ -42,7 +42,6 @@ public class WebLinksPage extends BasePage {
      * @param title
      */
     public void createNewWebLinks(String title, String url) {
-        clickNewButton();
         enterTitle(title);
         enterUrlWebLinks(url);
         clickSaveAndCloseButton();

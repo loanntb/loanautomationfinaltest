@@ -25,6 +25,11 @@ public class WebLinksTest  extends BaseTest{
 
     @Test(testName = "TC_JOOMLA_WEBLINKS_005", description = "Verify user can move a weblink to the archive")
     public void tcJoomplaWebLinks005() {
+        Log.info("Verify user can move a weblink to the archive");
+
+        Log.info("Click on the new button");
+        webLinksPage.clickNewButton();
+
         Log.info("Create a new weblinks");
         webLinksPage.createNewWebLinks(DataHelper.randomString(), DataHelper.randomUrl());
 

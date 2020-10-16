@@ -46,17 +46,35 @@ public class BannersBannersTest extends BaseTest {
     }
     @Test(testName = "TC_JOOMLA_BANNERS_BANNERS_004", description = "Verify that user can unpublish a banner")
     public void tcJoomlaBannersBanners004() {
+        Log.info("Open Banners Clients Page");
+        bannersClientsPage.selectOnClientPage();
+
+        Log.info("Click new button at Banners Clients Page");
+        bannersClientsPage.clickNewButton();
+
         Log.info("Create a client");
         bannersClientsPage.createNewClient(DataHelper.randomString(), DataHelper.randomName(), DataHelper.randomEmail());
 
         Log.info("Verify successful message");
         Assert.assertEquals(bannersClientsPage.getTextSuccessfulMessage(), "Client saved.", "Cannot create a client");
 
+        Log.info("Open Banners Categories Page");
+        bannersCategoriesPage.selectOnCategoryPage();
+
+        Log.info("Click new button at Banners Categories Page");
+        bannersCategoriesPage.clickNewButton();
+
         Log.info("Create a category");
         bannersCategoriesPage.createNewCategory(DataHelper.randomString());
 
         Log.info("Verify successful message");
         Assert.assertEquals(bannersCategoriesPage.getTextSuccessfulMessage(), "Category saved.", "Cannot create a category");
+
+        Log.info("Open Banners Banners Page");
+        bannersBannersPage.selectOnBannersPage();
+
+        Log.info("Click new button at Banners Banners Page");
+        bannersBannersPage.clickNewButton();
 
         Log.info("Create a Banner");
         bannersBannersPage.createNewBannerUsingSaveAndClose(DataHelper.randomString(), Constant.SAMPLE_DATA_BANNERS_CATEGORY, Constant.NO_CLIENT);

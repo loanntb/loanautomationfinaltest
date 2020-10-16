@@ -15,7 +15,7 @@ public class BannersCategoriesPage extends BasePage {
     }
 
     //Method
-    private void selectOnCategoryPage() {
+    public void selectOnCategoryPage() {
         clickOnSideBarNav(Constant.COMPONENTS, Constant.BANNERS, Constant.CATEGORIES);
     }
 
@@ -28,8 +28,6 @@ public class BannersCategoriesPage extends BasePage {
     }
 
     public void createNewCategory(String categoryName) {
-        selectOnCategoryPage();
-        clickNewButton();
         enterCategoryName(categoryName);
         clickSaveAndCloseButton();
     }
