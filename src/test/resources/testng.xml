@@ -9,19 +9,19 @@
 <!--            <class name="testcases.BannerTests"/>-->
 <!--            <class name="testcases.BannersBannersTest"/>-->
 <!--            <class name="testcases.WebLinksTest"/>-->
-<!--            <class name="testcases.BannersClientsTest"/>-->
+            <class name="testcases.BannersClientsTest"/>
         </classes>
 
     </test> <!-- Test -->
     <test name="FirefoxTest">
         <parameter name="browser" value="firefox"/>
         <classes>
-            <class name="testcases.ArticleTests"/>
-            <class name="testcases.ContactTests"/>
-            <class name="testcases.BannerTests"/>
-            <class name="testcases.BannersBannersTest"/>
-            <class name="testcases.WebLinksTest"/>
-            <class name="testcases.BannersClientsTest"/>
+<!--            <class name="testcases.ArticleTests"/>-->
+<!--            <class name="testcases.ContactTests"/>-->
+<!--            <class name="testcases.BannerTests"/>-->
+<!--            <class name="testcases.BannersBannersTest"/>-->
+<!--            <class name="testcases.WebLinksTest"/>-->
+<!--            <class name="testcases.BannersClientsTest"/>-->
         </classes>
     </test>
     <test name="EdgeTest">

@@ -39,7 +39,16 @@ public class BannersBannersPage extends BasePage {
         return getTextTrim(DriverHelper.getWebDriver().findElement(successfulMessage));
     }
 
-    public void createNewBanner(String categoryName, String category, String client) {
+    public void createNewBannerUsingSaveAndNew(String categoryName, String category, String client) {
+        selectOnBannersPage();
+        clickNewButton();
+        enterBannerName(categoryName);
+        selectValueCategory(category);
+        selectValueClient(client);
+        clickSaveAndNewButton();
+    }
+
+    public void createNewBannerUsingSaveAndClose(String categoryName, String category, String client) {
         selectOnBannersPage();
         clickNewButton();
         enterBannerName(categoryName);

@@ -4,6 +4,7 @@ import helper.DriverHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.Color;
 
 import java.util.List;
 
@@ -290,6 +291,16 @@ public class BasePage {
      */
     public String getTextTitleClientHelper(String value) {
         return getTextTrim(getTitleClientHelper(value));
+    }
+
+    /***
+     *  Converted Into HexFormat
+     * @param color
+     * @return
+     */
+    public String getColorMessage(String color){
+        String hexColor = Color.fromString(color).asHex();
+        return hexColor;
     }
 
 }

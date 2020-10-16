@@ -38,7 +38,7 @@ public class BannersBannersTest extends BaseTest {
         Assert.assertEquals(bannersCategoriesPage.getTextSuccessfulMessage(), "Category saved.", "Cannot create a category");
 
         Log.info("Create a Banner");
-        bannersBannersPage.createNewBanner(DataHelper.randomString(), Constant.SAMPLE_DATA_BANNERS_CATEGORY, Constant.NO_CLIENT);
+        bannersBannersPage.createNewBannerUsingSaveAndNew(DataHelper.randomString(), Constant.SAMPLE_DATA_BANNERS_CATEGORY, Constant.NO_CLIENT);
 
         Log.info("Verify successful message");
         Assert.assertEquals(bannersBannersPage.getTextSuccessfulMessage(), "Banner saved.", "Cannot create a banner");
@@ -59,7 +59,7 @@ public class BannersBannersTest extends BaseTest {
         Assert.assertEquals(bannersCategoriesPage.getTextSuccessfulMessage(), "Category saved.", "Cannot create a category");
 
         Log.info("Create a Banner");
-        bannersBannersPage.createNewBanner(DataHelper.randomString(), Constant.SAMPLE_DATA_BANNERS_CATEGORY, Constant.NO_CLIENT);
+        bannersBannersPage.createNewBannerUsingSaveAndClose(DataHelper.randomString(), Constant.SAMPLE_DATA_BANNERS_CATEGORY, Constant.NO_CLIENT);
 
         Log.info("Verify successful message");
         Assert.assertEquals(bannersBannersPage.getTextSuccessfulMessage(), "Banner saved.", "Cannot create a banner");

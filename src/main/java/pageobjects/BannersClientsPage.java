@@ -93,9 +93,7 @@ public class BannersClientsPage extends BasePage {
 
     public String getColorErrorMessage(){
         String colorString =  getErrorMessage().getCssValue("color").trim();
-        //converted Into HexFormat
-        String hexColor = Color.fromString(colorString).asHex();
-        return hexColor;
+        return getColorMessage(colorString);
     }
 
     public void findClientBannerHelperPage(){
