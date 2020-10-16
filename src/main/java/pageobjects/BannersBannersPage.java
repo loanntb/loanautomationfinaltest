@@ -20,7 +20,7 @@ public class BannersBannersPage extends BasePage {
     }
     //Method
     private void selectOnBannersPage() {
-        clickOnMenuLevel3Tab(Constant.COMPONENTS, Constant.BANNERS, Constant.BANNERS);
+        clickOnSideBarNav(Constant.COMPONENTS, Constant.BANNERS, Constant.BANNERS);
     }
     private WebElement getValueClient(String value) {
         return DriverHelper.getWebDriver().findElement(By.xpath(String.format(valueClient, value)));

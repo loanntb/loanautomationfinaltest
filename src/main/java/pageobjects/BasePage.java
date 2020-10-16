@@ -13,6 +13,7 @@ public class BasePage {
     private String menuLevel1Tab = "//ul[@id='menu']/li/a[normalize-space(text())='%s']";
     private String menuLevel2Tab = "//ul[@id='menu']/li/a[normalize-space(text())='%s']/following-sibling::ul/li/a[normalize-space(text())='%s']";
     private String menuLevel3Tab = "//ul[@id='menu']/li/a[normalize-space(text())='%s']/following-sibling::ul/li/a[normalize-space(text())='%s']/../../../following::ul[@id='nav-empty']//a[normalize-space(text())='%s']";
+    private String sideBarNav = "//ul[@id='submenu']//a[contains(text(), '%s')]";
     private By newButton = By.id("toolbar-new");
     private By saveAndCloseButton = By.xpath("//div[@id='toolbar-save']/button[@class='btn btn-small button-save']");
     private By publishButton = By.id("toolbar-publish");
@@ -35,8 +36,8 @@ public class BasePage {
     private String valuePagingControl  = "//div[@id='list_limit_chzn']//ul['chzn-results']/li[contains(text(), '%s')]";
 
     //Element
-    private WebElement getMenuLevel1Tab(String value) {
-        return DriverHelper.getWebDriver().findElement(By.xpath(String.format(menuLevel1Tab, value)));
+    private WebElement getSideBarNav(String value) {
+        return DriverHelper.getWebDriver().findElement(By.xpath(String.format(sideBarNav, value)));
     }
 
     private String getTextMenuLevel1Tab(String value) {
@@ -53,6 +54,10 @@ public class BasePage {
 
     private WebElement getMenuLevel3Tab(String level1, String level2, String level3) {
         return DriverHelper.getWebDriver().findElement(By.xpath(String.format(menuLevel3Tab, level1, level2, level3)));
+    }
+
+    private WebElement getMenuLevel1Tab(String value) {
+        return DriverHelper.getWebDriver().findElement(By.xpath(String.format(menuLevel1Tab, value)));
     }
 
     private WebElement getContentNavTab(String value) {
@@ -173,6 +178,17 @@ public class BasePage {
         clickOnMenuLevel1Tab(level1);
         hoverOnMenuLevel2Tab(level1, level2);
         getMenuLevel3Tab(level1, level2, level3).click();
+    }
+
+    /***
+     * Select on side bar Nav - sub menu
+     * @param level1
+     * @param level2
+     * @param navBar
+     */
+    public void clickOnSideBarNav(String level1, String level2, String navBar) {
+        clickOnMenuLevel2Tab(level1, level2);
+        getSideBarNav(navBar).click();
     }
 
     public void clickNewButton() {

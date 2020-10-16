@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class BannersCategoriesPage extends BasePage {
-    private By categoryName = By.id("jform_title");
+    private By categoryName = By.cssSelector("input#jform_title");
     private By successfulMessage = By.cssSelector(".alert-message");
 
     //Elements
@@ -16,7 +16,7 @@ public class BannersCategoriesPage extends BasePage {
 
     //Method
     private void selectOnCategoryPage() {
-        clickOnMenuLevel3Tab(Constant.COMPONENTS, Constant.BANNERS, Constant.CATEGORIES);
+        clickOnSideBarNav(Constant.COMPONENTS, Constant.BANNERS, Constant.CATEGORIES);
     }
 
     private void enterCategoryName(String name) {

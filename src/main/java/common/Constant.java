@@ -17,7 +17,7 @@ public class Constant {
     public static final String SAMPLE_DATA_BANNERS_CATEGORY = "Sample Data-Banners";
 
     //Article
-    public static final String SAMPLE_DATA_ARTICLES_CATEGORY = "- Sample Data-Articles";
+    public static final String SAMPLE_DATA_ARTICLES_CATEGORY = "Loan Article";
 
     //Contact
     public static final String SAMPLE_DATA_CONTACT_CATEGORY = "Sample Data-Contact";

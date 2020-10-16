@@ -39,7 +39,7 @@ public class BannersClientsPage extends BasePage {
 
     //Method
     private void selectOnClientPage() {
-        clickOnMenuLevel3Tab(Constant.COMPONENTS, Constant.BANNERS, Constant.CLIENTS);
+        clickOnSideBarNav(Constant.COMPONENTS, Constant.BANNERS, Constant.CLIENTS);
     }
 
     public void clickHelpButton() {
