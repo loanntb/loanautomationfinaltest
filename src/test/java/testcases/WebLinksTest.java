@@ -15,9 +15,12 @@ public class WebLinksTest  extends BaseTest{
     private LoginPage loginPage = new LoginPage();
 
     @BeforeMethod(description = "Pre-Condition: Log in with a valid account ")
-    public void articlePre() {
+    public void webLinksPre() {
         Log.info("Login using new account");
         loginPage.login(Constant.USER_NAME, Constant.PASSWORD);
+
+        Log.info("Open weblinks page");
+        webLinksPage.selectOnWebLinksMenu();
     }
 
     @Test(testName = "TC_JOOMLA_WEBLINKS_005", description = "Verify user can move a weblink to the archive")

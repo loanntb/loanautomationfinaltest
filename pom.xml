@@ -19,7 +19,8 @@
                 <version>2.20</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
+                        <!--suppress UnresolvedMavenProperty -->
+                        <suiteXmlFile>${testing}</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

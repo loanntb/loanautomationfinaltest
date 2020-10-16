@@ -16,11 +16,13 @@ public class ContactTests extends BaseTest {
     private LoginPage loginPage = new LoginPage();
     private BasePage bannerPage = new BasePage();
 
-    @BeforeMethod(description = "Pre-Condition: User can create new article with valid information ")
-    public void articlePre() {
+    @BeforeMethod(description = "Pre-Condition: Login with a valid account and redirect to contacts page")
+    public void contactPre() {
         Log.info("Login using new account");
         loginPage.login(Constant.USER_NAME, Constant.PASSWORD);
 
+        Log.info("Open contacts page");
+        contactsPagePage.selectOnContactMenu();
     }
 
     @Test(testName = "TC_JOOMLA_CONTACTS_004", description = "Verify user can unpublish a published contact")
@@ -38,6 +40,7 @@ public class ContactTests extends BaseTest {
 
         Log.info("Click on unpublish Contact button");
         contactsPagePage.unpublishContact();
+
         Log.info("Verify successful message ");
         Assert.assertEquals(contactsPagePage.getTextSuccessfulMessage(), "1 contact unpublished.", "Cannot unpublish a contact");
     }
@@ -45,7 +48,18 @@ public class ContactTests extends BaseTest {
     @Test(testName = "TC_JOOMLA_CONTACTS_011", description = "User can sort the contact table by ID column")
     public void tcJoomlaContacts011() {
         Log.info("User can sort the contact table by ID column");
-        contactsPagePage.sortContactByID();
+
+        Log.info("Click on ID column");
+        contactsPagePage.clickIDColumn();
+
+        Log.info("Verify Items ascending sorted the contact table by ID column");
+        Assert.assertTrue(contactsPagePage.verifyIdAscending(), "Items ascending sorted  is incorrectly");
+
+        Log.info("Click on ID column");
+        contactsPagePage.clickIDColumn();
+
+        Log.info("Verify Items reverse sorted the contact table by ID column");
+        Assert.assertTrue(contactsPagePage.verifyIdReverse(), "Items reverse sorted  is incorrectly");
     }
 
 }

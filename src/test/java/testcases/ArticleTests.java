@@ -15,10 +15,13 @@ public class ArticleTests extends BaseTest {
     private LoginPage loginPage = new LoginPage();
     private BannersPage bannersPage = new BannersPage();
 
-    @BeforeMethod(description = "Pre-Condition: User can create new article with valid information ")
+    @BeforeMethod(description = "Pre-Condition: Login with a valid account and redirect to articles page ")
     public void articlePre() {
         Log.info("Login using new account");
         loginPage.login(Constant.USER_NAME, Constant.PASSWORD);
+
+        Log.info("Open articles page");
+        articlesPage.selectOnArticleMenu();
     }
 
     @Test(testName = "TC_JOOMLA_ARTICLE_004", description = "Verify user can unpublish a published article ")
@@ -31,6 +34,7 @@ public class ArticleTests extends BaseTest {
 
         Log.info("Sort the article table by ID descending");
         bannersPage.selectArrow();
+
         Log.info("Verify user can unpublish a published article");
         articlesPage.unpublishArticle();
 
@@ -40,8 +44,19 @@ public class ArticleTests extends BaseTest {
 
     @Test(testName = "TC_JOOMLA_ARTICLE_011", description = "User can sort the contact table by ID column")
     public void tcJoomlaArticle011() {
-        Log.info("User can sort the contact table by ID column");
-        articlesPage.sortContactByID();
+        Log.info("User can sort the article table by ID column");
+
+        Log.info("Click on ID column");
+        articlesPage.clickIDColumn();
+
+        Log.info("Verify Items ascending sorted the article table by ID column");
+        Assert.assertTrue(articlesPage.verifyIdAscending(), "Items ascending sorted  is incorrectly");
+
+        Log.info("Click on ID column");
+        articlesPage.clickIDColumn();
+
+        Log.info("Verify Items reverse sorted the contact table by ID column");
+        Assert.assertTrue(articlesPage.verifyIdReverse(), "Items reverse sorted  is incorrectly");
     }
 
 

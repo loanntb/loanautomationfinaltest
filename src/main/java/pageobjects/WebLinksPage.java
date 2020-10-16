@@ -25,7 +25,7 @@ public class WebLinksPage extends BasePage {
         return getTextTrim(DriverHelper.getWebDriver().findElement(successfulMessage));
     }
 
-    private void selectOnWebLinksMenu() {
+    public void selectOnWebLinksMenu() {
         clickOnMenuLevel2Tab(Constant.COMPONENTS, Constant.WEBLINKS);
     }
 
@@ -42,7 +42,6 @@ public class WebLinksPage extends BasePage {
      * @param title
      */
     public void createNewWebLinks(String title, String url) {
-        selectOnWebLinksMenu();
         clickNewButton();
         enterTitle(title);
         enterUrlWebLinks(url);
@@ -58,7 +57,6 @@ public class WebLinksPage extends BasePage {
     }
 
     public void selectPagingWebLinksControl(String value){
-        selectOnWebLinksMenu();
         selectValuePagingControl(value);
     }
     public String getExpectedURL() {

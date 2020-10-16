@@ -18,7 +18,7 @@ public class BannersBannersTest extends BaseTest {
     private BannersCategoriesPage bannersCategoriesPage = new BannersCategoriesPage();
 
     @BeforeMethod(description = "Pre-Condition: User can create new article with valid information ")
-    public void articlePre() {
+    public void bannerBannersPre() {
         Log.info("Login using new account");
         loginPage.login(Constant.USER_NAME, Constant.PASSWORD);
     }

@@ -23,7 +23,7 @@ public class CategoriesPage extends BannersPage {
         return getTextTrim(DriverHelper.getWebDriver().findElement(successfulMessage));
     }
 
-    private void selectOnCategoryMenu() {
+    public void selectOnCategoryMenu() {
         clickOnMenuLevel2Tab(Constant.CONTENT, Constant.CATEGORIES);
     }
 
@@ -38,7 +38,6 @@ public class CategoriesPage extends BannersPage {
      * @param title
      */
     public void createNewCategory(String title) {
-        selectOnCategoryMenu();
         clickNewButton();
         enterTitle(title);
         clickSaveAndCloseButton();

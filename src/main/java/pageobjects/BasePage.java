@@ -33,23 +33,15 @@ public class BasePage {
     private By arrowUp = By.cssSelector(".icon-arrow-up-3");
     private String titleClientHelp = "//h1[.='%s']";
     private By pagingControl = By.id("list_limit_chzn");
-    private String valuePagingControl  = "//div[@id='list_limit_chzn']//ul['chzn-results']/li[contains(text(), '%s')]";
+    private String valuePagingControl = "//div[@id='list_limit_chzn']//ul['chzn-results']/li[contains(text(), '%s')]";
 
     //Element
     private WebElement getSideBarNav(String value) {
         return DriverHelper.getWebDriver().findElement(By.xpath(String.format(sideBarNav, value)));
     }
 
-    private String getTextMenuLevel1Tab(String value) {
-        return getTextTrim(getMenuLevel1Tab(value));
-    }
-
     private WebElement getMenuLevel2Tab(String level1, String level2) {
         return DriverHelper.getWebDriver().findElement(By.xpath(String.format(menuLevel2Tab, level1, level2)));
-    }
-
-    private String getTextMenuLevel2Tab(String level1, String level2) {
-        return getTextTrim(getMenuLevel2Tab(level1, level2));
     }
 
     private WebElement getMenuLevel3Tab(String level1, String level2, String level3) {
@@ -131,9 +123,11 @@ public class BasePage {
     private WebElement getTitleClientHelper(String value) {
         return DriverHelper.getWebDriver().findElement(By.xpath(String.format(titleClientHelp, value)));
     }
+
     private WebElement getPagingControl() {
         return DriverHelper.getWebDriver().findElement(pagingControl);
     }
+
     private WebElement getValuePagingControl(String value) {
         return DriverHelper.getWebDriver().findElement(By.xpath(String.format(valuePagingControl, value)));
     }
@@ -242,10 +236,17 @@ public class BasePage {
         getContentNavTab(value).click();
     }
 
+    /***
+     * Click on the ID column
+     */
     public void clickIDColumn() {
         getIDColumn().click();
     }
 
+    /***
+     * Select Arrow
+     *
+     */
     public void selectArrow() {
         clickIDColumn();
         if (getArrowUp().isDisplayed()) {
@@ -258,16 +259,6 @@ public class BasePage {
     /***
      * Verify the table  by ID column
      */
-    public void sortTableByIDColumn() {
-        clickIDColumn();
-        if (getArrowUp().isDisplayed()) {
-            getArrowUp().click();
-            verifyIdAscending();
-        } else {
-            getArrowDown().click();
-            verifyIdReverse();
-        }
-    }
 
     public boolean verifyIdAscending() {
         boolean boo = true;
@@ -314,7 +305,7 @@ public class BasePage {
      * @param color
      * @return
      */
-    public String getColorMessage(String color){
+    public String getColorMessage(String color) {
         String hexColor = Color.fromString(color).asHex();
         return hexColor;
     }

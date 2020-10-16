@@ -26,7 +26,7 @@ public class ContactsPage extends BasePage {
         return getTextTrim(DriverHelper.getWebDriver().findElement(successfulMessage));
     }
 
-    private void selectOnContactMenu() {
+    public void selectOnContactMenu() {
         clickOnMenuLevel2Tab(Constant.COMPONENTS, Constant.CONTACTS);
     }
 
@@ -45,7 +45,6 @@ public class ContactsPage extends BasePage {
      * @param category
      */
     public void createNewContact(String title, String alia, String status, String category) {
-        selectOnContactMenu();
         clickNewButton();
         enterTitle(title);
         enterAlia(alia);
@@ -62,11 +61,4 @@ public class ContactsPage extends BasePage {
         clickUnpublishButton();
     }
 
-    /***
-     * Sort the Contact table by ID column
-     */
-    public void sortContactByID(){
-        selectOnContactMenu();
-        sortTableByIDColumn();
-    }
 }

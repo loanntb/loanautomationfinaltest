@@ -16,10 +16,13 @@ public class CategoryTest extends BaseTest {
     private LoginPage loginPage = new LoginPage();
 
 
-    @BeforeMethod(description = "Pre-Condition: Log in with a valid account ")
-    public void articlePre() {
+    @BeforeMethod(description = "Pre-Condition: Log in with a valid account and redirect category manager page ")
+    public void categoryPre() {
         Log.info("Login using new account");
         loginPage.login(Constant.USER_NAME, Constant.PASSWORD);
+
+        Log.info("Open categories manager page");
+        categoriesPage.selectOnCategoryMenu();
     }
 
     @Test(testName = "TC_JOOMLA_CATEGORY_MANAGER_005", description = "Verify that user can archive a category ")

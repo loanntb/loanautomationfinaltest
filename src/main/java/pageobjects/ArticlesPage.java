@@ -12,13 +12,8 @@ public class ArticlesPage extends BasePage {
     private By alia = By.id("jform_alias");
     private By contentArticleTab = By.id("jform_articletext_ifr");
     private By successfulMessage = By.cssSelector(".alert-message");
-    private By idCol = By.cssSelector("a[data-name='ID']");
 
     //Element
-    private WebElement getArticleMenu() {
-        return DriverHelper.getWebDriver().findElement(articleMenu);
-    }
-
     private WebElement getTitleArticle() {
         return DriverHelper.getWebDriver().findElement(titleArticle);
     }
@@ -37,7 +32,7 @@ public class ArticlesPage extends BasePage {
         return getTextTrim(DriverHelper.getWebDriver().findElement(successfulMessage));
     }
 
-    private void selectOnArticleMenu() {
+    public void selectOnArticleMenu() {
         clickOnMenuLevel2Tab(Constant.CONTENT, Constant.ARTICLES);
     }
 
@@ -61,7 +56,6 @@ public class ArticlesPage extends BasePage {
      * @param content
      */
     public void createNewArticle(String title, String content, String alia, String status, String category) {
-        selectOnArticleMenu();
         clickNewButton();
         enterTitle(title);
         enterContent(content);
@@ -79,12 +73,4 @@ public class ArticlesPage extends BasePage {
         clickUnpublishButton();
     }
 
-    /***
-     * Sort the article table by ID column
-     */
-
-    public void sortContactByID(){
-        selectOnArticleMenu();
-        sortTableByIDColumn();
-    }
 }

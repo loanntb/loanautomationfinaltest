@@ -26,7 +26,7 @@ public class BannersPage extends BasePage {
         return getTextTrim(DriverHelper.getWebDriver().findElement(successfulMessage));
     }
 
-    private void selectOnBannerMenu() {
+    public void selectOnBannerMenu() {
         clickOnMenuLevel2Tab(Constant.COMPONENTS, Constant.BANNERS);
     }
     private void enterTitle(String title) {
@@ -43,7 +43,6 @@ public class BannersPage extends BasePage {
      * @param alia
      */
     public void createNewBanner(String title, String alia, String status, String category) {
-        selectOnBannerMenu();
         clickNewButton();
         enterTitle(title);
         enterAlia(alia);

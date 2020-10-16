@@ -13,10 +13,13 @@ public class BannerTests extends BaseTest {
     private BannersPage bannersPage = new BannersPage();
     private LoginPage loginPage = new LoginPage();
 
-    @BeforeMethod(description = "Pre-Condition: User can create new article with valid information ")
-    public void articlePre() {
+    @BeforeMethod(description = "Pre-Condition: Login with a valid account and redirect to banners page")
+    public void bannersPre() {
         Log.info("Login using new account");
         loginPage.login(Constant.USER_NAME, Constant.PASSWORD);
+
+        Log.info("Open banners page");
+        bannersPage.selectOnBannerMenu();
     }
 
     @Test(testName = "TC_JOOMLA_BANNERS_004", description = "Verify that user can unpublish a banner")
