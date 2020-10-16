@@ -53,13 +53,13 @@ public class ContactTests extends BaseTest {
         contactsPagePage.clickIDColumn();
 
         Log.info("Verify Items ascending sorted the contact table by ID column");
-        Assert.assertTrue(contactsPagePage.verifyIdAscending(), "Items ascending sorted  is incorrectly");
+        Assert.assertTrue(contactsPagePage.checkIdAscending(), "Items ascending sorted  is incorrectly");
 
         Log.info("Click on ID column");
         contactsPagePage.clickIDColumn();
 
         Log.info("Verify Items reverse sorted the contact table by ID column");
-        Assert.assertTrue(contactsPagePage.verifyIdReverse(), "Items reverse sorted  is incorrectly");
+        Assert.assertTrue(contactsPagePage.checkIdReverse(), "Items reverse sorted  is incorrectly");
     }
 
 }

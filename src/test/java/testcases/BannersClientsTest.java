@@ -3,7 +3,6 @@ package testcases;
 
 import common.Constant;
 import common.Log;
-import helper.ClientHelper;
 import helper.DataHelper;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -28,7 +27,7 @@ public class BannersClientsTest extends BaseTest {
         bannersClientsPage.findClientBannerHelperPage();
 
         Log.info("Verify Banner Help Page Title");
-        Assert.assertEquals(ClientHelper.verifyHelpPageTitle(Constant.COMPONENTS_BANNERS_CLIENTS), bannersClientsPage.isTitleClientHelperEqual(Constant.COMPONENTS_BANNERS_CLIENTS),"The title client helper page is different");
+        Assert.assertEquals(ClientHelper.checkHelpPageTitle(Constant.COMPONENTS_BANNERS_CLIENTS), bannersClientsPage.isTitleClientHelperEqual(Constant.COMPONENTS_BANNERS_CLIENTS),"The title client helper page is different");
     }
 
     @Test(testName = "TC_JOOMLA_BANNERS_CLIENTS_014", description = "Verify that user cannot create a new client without entering the name of the client")

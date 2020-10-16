@@ -260,7 +260,7 @@ public class BasePage {
      * Verify the table  by ID column
      */
 
-    public boolean verifyIdAscending() {
+    public boolean checkIdAscending() {
         boolean boo = true;
         for (int i = 0; i < elements().size() - 1; i++) {
             if (Integer.parseInt(getTextTrim(elements().get(i))) > Integer.parseInt(getTextTrim(elements().get(i + 1)))) {
@@ -271,7 +271,7 @@ public class BasePage {
         return boo;
     }
 
-    public boolean verifyIdReverse() {
+    public boolean checkIdReverse() {
         boolean boo = true;
         for (int i = 0; i < elements().size() - 1; i++) {
             if (Integer.parseInt(getTextTrim(elements().get(i))) < Integer.parseInt(getTextTrim(elements().get(i + 1)))) {

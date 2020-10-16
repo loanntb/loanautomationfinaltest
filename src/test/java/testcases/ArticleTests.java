@@ -53,13 +53,13 @@ public class ArticleTests extends BaseTest {
         articlesPage.clickIDColumn();
 
         Log.info("Verify Items ascending sorted the article table by ID column");
-        Assert.assertTrue(articlesPage.verifyIdAscending(), "Items ascending sorted  is incorrectly");
+        Assert.assertTrue(articlesPage.checkIdAscending(), "Items ascending sorted  is incorrectly");
 
         Log.info("Click on ID column");
         articlesPage.clickIDColumn();
 
         Log.info("Verify Items reverse sorted the contact table by ID column");
-        Assert.assertTrue(articlesPage.verifyIdReverse(), "Items reverse sorted  is incorrectly");
+        Assert.assertTrue(articlesPage.checkIdReverse(), "Items reverse sorted  is incorrectly");
     }
 
 

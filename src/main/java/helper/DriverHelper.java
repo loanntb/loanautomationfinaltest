@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class DriverHelper {
@@ -92,9 +93,40 @@ public class DriverHelper {
     public static void scrollToPageView() {
         initJs().executeScript("window.scrollTo(0, document.body.scrollHeight)");
     }
+
     // Accepting javascript alert
     public static void alertAccept() {
         Alert alert = driver.switchTo().alert();
         alert.accept();
     }
+
+    public static boolean checkHelpPageTitle(String title) {
+        // Get all Open Tabs
+        ArrayList<String> tabHandles = new ArrayList<String>(driver.getWindowHandles());
+        for (String eachHandle : tabHandles) {
+           driver.switchTo().window(eachHandle);
+            // Check Help Page Title
+            if (DriverHelper.getWebDriver().getTitle().equals(title)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Use for Help page
+     *
+     * @param title New web title after action click or open
+     * @return true if it has two browser windows and the title of new window match
+     */
+//    public static boolean doesNewWindowDisplay(String title, int numberWindow) {
+//        // Get all Open Tabs
+//        ArrayList<String> tabHandles = new ArrayList<String>(driver.getWindowHandles());
+//        // handel Firefox
+//        WebDriverWait wait = new WebDriverWait(driver.switchTo().window(tabHandles.get(tabHandles.size() - 1)), PAGE_LOAD_TIME_OUT);
+//        wait.until(ExpectedConditions.titleContains(title));
+//
+//        return tabHandles.size() == numberWindow &&
+//                DRIVER.switchTo().window(tabHandles.get(tabHandles.size() - 1)).getTitle().equals(title);
+//    }
 }
