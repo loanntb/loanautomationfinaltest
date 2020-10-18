@@ -25,7 +25,7 @@ public class WebLinksPage extends BasePage {
         return getText(DriverHelper.getWebDriver().findElement(successfulMessage));
     }
 
-    public void selectOnWebLinksMenu() {
+    public void selectWebLinksMenu() {
         clickOnMenuLevel2Tab(Constant.COMPONENTS, Constant.WEBLINKS);
     }
 
@@ -58,8 +58,5 @@ public class WebLinksPage extends BasePage {
     public void selectPagingWebLinksControl(String value){
         selectValuePagingControl(value);
     }
-    public String getExpectedURL() {
-        Log.info("ExpectedURL: " + DriverHelper.getWebDriver().getCurrentUrl());
-        return DriverHelper.getWebDriver().getCurrentUrl();
-    }
+
 }

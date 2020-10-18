@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 import pageobjects.CategoriesPage;
 import pageobjects.LoginPage;
 
-public class CategoryTest extends BaseTest {
+public class CategoriesTest extends BaseTest {
     private CategoriesPage categoriesPage = new CategoriesPage();
     private LoginPage loginPage = new LoginPage();
 
@@ -49,13 +49,17 @@ public class CategoryTest extends BaseTest {
     @Test(testName = "TC_JOOMLA_CATEGORY_MANAGER_012", description = "Verify that user can cancel adding action while adding a new create")
     public void tcJoomplaCategoryManager012() {
         Log.info("Verify that user can cancel adding action while adding a new create");
+
+        Log.info("Click on the new button");
+        categoriesPage.clickNewButton();
+
         categoriesPage.cancelCategoryWhileAdding(DataHelper.randomString());
 
         Log.info("Get CurrentUrl of this page  ");
-        String actualURL = DriverHelper.getWebDriver().getCurrentUrl();
+        String actualURL = DriverHelper.getCurrentURL();
         Log.info("CurrentUrl:  " + actualURL);
 
         Log.info("Verify CurrentURL and ExpectedURL ");
-        Assert.assertEquals(actualURL, categoriesPage.getExpectedURL(), "Actual URL is not same expected url");
+        Assert.assertEquals(actualURL, categoriesPage.getCategoriesViewURL(), "Actual URL is not same expected url");
     }
 }

@@ -55,15 +55,13 @@ public class CategoriesPage extends BannersPage {
      * Cancel Category adding action while adding a new create
      */
     public void cancelCategoryWhileAdding(String title) {
-        selectOnCategoryMenu();
-        clickNewButton();
         enterTitle(title);
         clickCancelButton();
     }
 
-    public String getExpectedURL() {
-        Log.info("ExpectedURL: " + DriverHelper.getWebDriver().getCurrentUrl());
-        return DriverHelper.getWebDriver().getCurrentUrl();
+    public String getCategoriesViewURL() {
+        Log.info("ExpectedURL: " + DriverHelper.getCurrentURL());
+        return DriverHelper.getCurrentURL();
     }
 
 }

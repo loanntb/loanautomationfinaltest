@@ -1,6 +1,7 @@
 package helper;
 
 import common.Constant;
+import common.Log;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
@@ -119,6 +120,10 @@ public class DriverHelper {
             }
         }
         return false;
+    }
+
+    public static String getCurrentURL() {
+        return DriverHelper.getWebDriver().getCurrentUrl();
     }
 
 //    /**

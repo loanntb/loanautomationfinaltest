@@ -9,7 +9,8 @@
 <!--            <class name="testcases.BannerTests"/>-->
 <!--            <class name="testcases.BannersBannersTest"/>-->
 <!--            <class name="testcases.WebLinksTest"/>-->
-            <class name="testcases.BannersClientsTest"/>
+<!--            <class name="testcases.BannersClientsTest"/>-->
+            <class name="testcases.CategoriesTest"></class>
         </classes>
 
     </test> <!-- Test -->
