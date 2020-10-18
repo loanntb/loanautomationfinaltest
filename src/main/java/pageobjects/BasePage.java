@@ -1,5 +1,6 @@
 package pageobjects;
 
+import common.Log;
 import helper.DriverHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -32,8 +33,11 @@ public class BasePage {
     private By arrowDown = By.cssSelector("icon-arrow-down-3");
     private By arrowUp = By.cssSelector(".icon-arrow-up-3");
     private String titleHelperPage = "//h1[.='%s']";
+    private By paginationList = By.cssSelector(".pagination");
     private By pagingControl = By.id("list_limit_chzn");
     private String valuePagingControl = "//div[@id='list_limit_chzn']//ul['chzn-results']/li[contains(text(), '%s')]";
+    private By trTagName = By.tagName("tr");
+    private By rows = By.cssSelector(".table.table-striped tbody");
 
     //Element
     private WebElement getSideBarNav(String value) {
@@ -112,6 +116,10 @@ public class BasePage {
         return DriverHelper.getWebDriver().findElements(idColumn);
     }
 
+    private WebElement getRowsList() {
+        return DriverHelper.getWebDriver().findElement(rows);
+    }
+
     private WebElement getArrowUp() {
         return DriverHelper.getWebDriver().findElement(arrowUp);
     }
@@ -120,8 +128,12 @@ public class BasePage {
         return DriverHelper.getWebDriver().findElement(arrowDown);
     }
 
-    private WebElement getTitleClientHelper(String value) {
+    private WebElement getTitleHelperPage(String value) {
         return DriverHelper.getWebDriver().findElement(By.xpath(String.format(titleHelperPage, value)));
+    }
+
+    private WebElement getPaginationList(){
+        return DriverHelper.getWebDriver().findElement(paginationList);
     }
 
     private WebElement getPagingControl() {
@@ -257,6 +269,17 @@ public class BasePage {
     }
 
     /***
+     * Check pagination list navigation is displayed or not
+     * @return
+     */
+    public boolean isPaginationListNavigationDisplayed(){
+        if(getPaginationList().isDisplayed()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    /***
      * Verify the table  by ID column
      */
 
@@ -282,6 +305,11 @@ public class BasePage {
         return boo;
     }
 
+    public int getTotalRowsList() {
+        Log.info("Total number of Rows in the table are : " + getRowsList().findElements(trTagName).size());
+        return getRowsList().findElements(trTagName).size();
+    }
+
     /***
      * Get text and trim space
      * @param element
@@ -297,7 +325,7 @@ public class BasePage {
      * @return
      */
     public String getTextTitleHelper(String value) {
-        return getText(getTitleClientHelper(value));
+        return getText(getTitleHelperPage(value));
     }
 
     /***

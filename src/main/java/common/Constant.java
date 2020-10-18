@@ -48,9 +48,9 @@ public class Constant {
     public static final String COMPONENTS_BANNERS_CLIENTS = "Components Banners Clients";
 
     //WebLinks
-    public static final String _5_Paging_Control = "5";
-    public static final String ALL_Paging_Control = "All";
-
+    public static final String _5_PAGING_CONTROL = "5";
+    public static final String ALL_PAGING_CONTROL = "All";
+    public static final int ROWS_Paging_NUMBER_DISPLAYED = 5;
     //Color
     public static final String ERROR_MESSAGE_COLOR = "#a94442";
 

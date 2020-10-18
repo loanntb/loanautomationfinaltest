@@ -55,8 +55,25 @@ public class WebLinksPage extends BasePage {
         clickArchiveButton();
     }
 
+    /***
+     * Select a value on the paging dropdown
+     * @param value
+     */
     public void selectPagingWebLinksControl(String value){
         selectValuePagingControl(value);
+    }
+
+    /**
+     * Check total rows are displayed on the paging page
+     * @param number
+     * @return
+     */
+    public boolean checkTotalRowsPagingDisplayed(int number){
+        if(getTotalRowsList() == number){
+            return true;
+        }else {
+            return false;
+        }
     }
 
 }
