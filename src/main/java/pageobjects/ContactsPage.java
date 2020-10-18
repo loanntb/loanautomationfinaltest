@@ -23,7 +23,7 @@ public class ContactsPage extends BasePage {
 
     //Method
     public String getTextSuccessfulMessage() {
-        return getTextTrim(DriverHelper.getWebDriver().findElement(successfulMessage));
+        return getText(DriverHelper.getWebDriver().findElement(successfulMessage));
     }
 
     public void selectOnContactMenu() {

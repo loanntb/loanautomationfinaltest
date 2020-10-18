@@ -1,10 +1,10 @@
-package pageobjects;
+package pageobjects.banners;
 
 import common.Constant;
 import helper.DriverHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.Color;
+import pageobjects.BasePage;
 
 public class BannersClientsPage extends BasePage {
     //Locators
@@ -60,11 +60,11 @@ public class BannersClientsPage extends BasePage {
 
 
     public String getTextSuccessfulMessage() {
-        return getTextTrim(DriverHelper.getWebDriver().findElement(successfulMessage));
+        return getText(DriverHelper.getWebDriver().findElement(successfulMessage));
     }
 
     public String getTextErrorMessage() {
-        return getTextTrim(DriverHelper.getWebDriver().findElement(errorMessage));
+        return getText(DriverHelper.getWebDriver().findElement(errorMessage));
     }
 
     /***
@@ -81,7 +81,7 @@ public class BannersClientsPage extends BasePage {
     }
 
     public boolean isTitleClientHelperEqual(String value){
-        if(getTextTitleClientHelper(value) == value){
+        if(getTextTitleHelper(value) == value){
             return true;
         }else {
             return false;

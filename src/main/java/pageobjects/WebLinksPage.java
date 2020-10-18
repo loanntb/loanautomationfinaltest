@@ -22,7 +22,7 @@ public class WebLinksPage extends BasePage {
 
     //Method
     public String getTextSuccessfulMessage() {
-        return getTextTrim(DriverHelper.getWebDriver().findElement(successfulMessage));
+        return getText(DriverHelper.getWebDriver().findElement(successfulMessage));
     }
 
     public void selectOnWebLinksMenu() {

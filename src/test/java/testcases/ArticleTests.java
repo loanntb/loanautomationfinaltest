@@ -7,7 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pageobjects.ArticlesPage;
-import pageobjects.BannersPage;
+import pageobjects.banners.BannersPage;
 import pageobjects.LoginPage;
 
 public class ArticleTests extends BaseTest {
@@ -36,7 +36,7 @@ public class ArticleTests extends BaseTest {
         Assert.assertEquals(articlesPage.getTextSuccessfulMessage(), "Article saved.", "Cannot create a article");
 
         Log.info("Sort the article table by ID descending");
-        bannersPage.selectArrow();
+        bannersPage.selectArrowIDColumn();
 
         Log.info("Verify user can unpublish a published article");
         articlesPage.unpublishArticle();

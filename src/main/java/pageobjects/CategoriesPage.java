@@ -5,6 +5,7 @@ import common.Log;
 import helper.DriverHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import pageobjects.banners.BannersPage;
 
 public class CategoriesPage extends BannersPage {
     //Locators
@@ -20,7 +21,7 @@ public class CategoriesPage extends BannersPage {
 
     //Method
     public String getTextSuccessfulMessage() {
-        return getTextTrim(DriverHelper.getWebDriver().findElement(successfulMessage));
+        return getText(DriverHelper.getWebDriver().findElement(successfulMessage));
     }
 
     public void selectOnCategoryMenu() {

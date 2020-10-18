@@ -1,9 +1,10 @@
-package pageobjects;
+package pageobjects.banners;
 
 import common.Constant;
 import helper.DriverHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import pageobjects.BasePage;
 
 public class BannersPage extends BasePage {
     //Locators
@@ -23,7 +24,7 @@ public class BannersPage extends BasePage {
 
     //Method
     public String getTextSuccessfulMessage() {
-        return getTextTrim(DriverHelper.getWebDriver().findElement(successfulMessage));
+        return getText(DriverHelper.getWebDriver().findElement(successfulMessage));
     }
 
     public void selectOnBannerMenu() {

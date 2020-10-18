@@ -7,7 +7,6 @@ import helper.DriverHelper;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pageobjects.BannersPage;
 import pageobjects.CategoriesPage;
 import pageobjects.LoginPage;
 
@@ -39,7 +38,7 @@ public class CategoryTest extends BaseTest {
         Assert.assertEquals(categoriesPage.getTextSuccessfulMessage(), "Category saved.", "Cannot create a Category");
 
         Log.info("Sort the Category table by ID descending");
-        categoriesPage.selectArrow();
+        categoriesPage.selectArrowIDColumn();
         Log.info("Verify that user can archive a category");
         categoriesPage.archiveCategory();
 

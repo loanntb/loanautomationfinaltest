@@ -8,7 +8,7 @@ import helper.DriverHelper;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pageobjects.BannersClientsPage;
+import pageobjects.banners.BannersClientsPage;
 import pageobjects.LoginPage;
 
 
@@ -28,7 +28,7 @@ public class BannersClientsTest extends BaseTest {
         bannersClientsPage.findClientBannerHelperPage();
 
         Log.info("Verify Banner Help Page Title");
-        Assert.assertEquals(DriverHelper.checkHelpPageTitle(Constant.COMPONENTS_BANNERS_CLIENTS), bannersClientsPage.isTitleClientHelperEqual(Constant.COMPONENTS_BANNERS_CLIENTS),"The title client helper page is different");
+        Assert.assertEquals(DriverHelper.doesNewWindowOpen(Constant.COMPONENTS_BANNERS_CLIENTS, 1), bannersClientsPage.isTitleClientHelperEqual(Constant.COMPONENTS_BANNERS_CLIENTS),"The title client helper page is different");
     }
 
     @Test(testName = "TC_JOOMLA_BANNERS_CLIENTS_014", description = "Verify that user cannot create a new client without entering the name of the client")

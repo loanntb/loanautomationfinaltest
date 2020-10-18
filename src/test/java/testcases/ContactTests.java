@@ -36,7 +36,7 @@ public class ContactTests extends BaseTest {
         Assert.assertEquals(contactsPagePage.getTextSuccessfulMessage(), "Contact saved.", "Cannot create a contact");
 
         Log.info("Sort the contact table by ID descending");
-        bannerPage.selectArrow();
+        bannerPage.selectArrowIDColumn();
 
         Log.info("Click on unpublish Contact button");
         contactsPagePage.unpublishContact();

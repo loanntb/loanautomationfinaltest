@@ -31,7 +31,7 @@ public class BasePage {
     private By idColumn = By.xpath("//table//td[count(//th[contains(.,'ID')]/preceding-sibling::th)+1]");
     private By arrowDown = By.cssSelector("icon-arrow-down-3");
     private By arrowUp = By.cssSelector(".icon-arrow-up-3");
-    private String titleClientHelp = "//h1[.='%s']";
+    private String titleHelperPage = "//h1[.='%s']";
     private By pagingControl = By.id("list_limit_chzn");
     private String valuePagingControl = "//div[@id='list_limit_chzn']//ul['chzn-results']/li[contains(text(), '%s')]";
 
@@ -121,7 +121,7 @@ public class BasePage {
     }
 
     private WebElement getTitleClientHelper(String value) {
-        return DriverHelper.getWebDriver().findElement(By.xpath(String.format(titleClientHelp, value)));
+        return DriverHelper.getWebDriver().findElement(By.xpath(String.format(titleHelperPage, value)));
     }
 
     private WebElement getPagingControl() {
@@ -247,7 +247,7 @@ public class BasePage {
      * Select Arrow
      *
      */
-    public void selectArrow() {
+    public void selectArrowIDColumn() {
         clickIDColumn();
         if (getArrowUp().isDisplayed()) {
             getArrowUp().click();
@@ -263,7 +263,7 @@ public class BasePage {
     public boolean checkIdAscending() {
         boolean boo = true;
         for (int i = 0; i < elements().size() - 1; i++) {
-            if (Integer.parseInt(getTextTrim(elements().get(i))) > Integer.parseInt(getTextTrim(elements().get(i + 1)))) {
+            if (Integer.parseInt(getText(elements().get(i))) > Integer.parseInt(getText(elements().get(i + 1)))) {
                 boo = false;
                 break;
             }
@@ -274,7 +274,7 @@ public class BasePage {
     public boolean checkIdReverse() {
         boolean boo = true;
         for (int i = 0; i < elements().size() - 1; i++) {
-            if (Integer.parseInt(getTextTrim(elements().get(i))) < Integer.parseInt(getTextTrim(elements().get(i + 1)))) {
+            if (Integer.parseInt(getText(elements().get(i))) < Integer.parseInt(getText(elements().get(i + 1)))) {
                 boo = false;
                 break;
             }
@@ -287,17 +287,17 @@ public class BasePage {
      * @param element
      * @return
      */
-    public String getTextTrim(WebElement element) {
+    public String getText(WebElement element) {
         return element.getText().trim();
     }
 
     /***
-     * Get title Client Helper page
+     * Get title Helper page
      * @param value
      * @return
      */
-    public String getTextTitleClientHelper(String value) {
-        return getTextTrim(getTitleClientHelper(value));
+    public String getTextTitleHelper(String value) {
+        return getText(getTitleClientHelper(value));
     }
 
     /***

@@ -37,7 +37,7 @@ public class WebLinksTest  extends BaseTest{
         Assert.assertEquals(webLinksPage.getTextSuccessfulMessage(), "Web link successfully saved", "Cannot create a weblinks");
 
         Log.info("Sort the WebLinks table by ID descending");
-        webLinksPage.selectArrow();
+        webLinksPage.selectArrowIDColumn();
         Log.info("Verify that user can archive a weblinks");
         webLinksPage.archiveWebLinks();
 

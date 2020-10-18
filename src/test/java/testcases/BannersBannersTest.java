@@ -6,9 +6,9 @@ import helper.DataHelper;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pageobjects.BannersBannersPage;
-import pageobjects.BannersCategoriesPage;
-import pageobjects.BannersClientsPage;
+import pageobjects.banners.BannersBannersPage;
+import pageobjects.banners.BannersCategoriesPage;
+import pageobjects.banners.BannersClientsPage;
 import pageobjects.LoginPage;
 
 public class BannersBannersTest extends BaseTest {
@@ -83,7 +83,7 @@ public class BannersBannersTest extends BaseTest {
         Assert.assertEquals(bannersBannersPage.getTextSuccessfulMessage(), "Banner saved.", "Cannot create a banner");
 
         Log.info("Sort the banner table by ID descending");
-        bannersBannersPage.selectArrow();
+        bannersBannersPage.selectArrowIDColumn();
 
         Log.info("Verify that user can unpublish a banner");
         bannersBannersPage.unpublishBanner();

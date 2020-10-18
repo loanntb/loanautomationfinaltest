@@ -1,9 +1,10 @@
-package pageobjects;
+package pageobjects.banners;
 
 import common.Constant;
 import helper.DriverHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import pageobjects.BasePage;
 
 public class BannersBannersPage extends BasePage {
     private By bannerName = By.id("jform_name");
@@ -36,7 +37,7 @@ public class BannersBannersPage extends BasePage {
     }
 
     public String getTextSuccessfulMessage() {
-        return getTextTrim(DriverHelper.getWebDriver().findElement(successfulMessage));
+        return getText(DriverHelper.getWebDriver().findElement(successfulMessage));
     }
 
     public void createNewBannerUsingSaveAndNew(String categoryName, String category, String client) {
