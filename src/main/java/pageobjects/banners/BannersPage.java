@@ -54,8 +54,8 @@ public class BannersPage extends BasePage {
     /***
      *  Unpublish the first Banner in the Banner page
      */
-    public void unpublishBanner() {
-        clickCheckbox();
+    public void unpublishBanner(String value) {
+        clickCheckbox(value);
         clickUnpublishButton();
     }
 }

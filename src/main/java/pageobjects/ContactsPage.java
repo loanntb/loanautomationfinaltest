@@ -45,7 +45,6 @@ public class ContactsPage extends BasePage {
      * @param category
      */
     public void createNewContact(String title, String alia, String status, String category) {
-        clickNewButton();
         enterTitle(title);
         enterAlia(alia);
         selectStatus(status);
@@ -56,8 +55,8 @@ public class ContactsPage extends BasePage {
     /***
      *  Unpublish the first article in the article page
      */
-    public void unpublishContact() {
-        clickCheckbox();
+    public void unpublishContact(String value) {
+        clickCheckbox(value);
         clickUnpublishButton();
     }
 

@@ -38,7 +38,7 @@ public class BannersClientsPage extends BasePage {
     }
 
     //Method
-    public void selectOnClientPage() {
+    public void selectClientPage() {
         clickOnSideBarNav(Constant.COMPONENTS, Constant.BANNERS, Constant.CLIENTS);
     }
 
@@ -95,7 +95,7 @@ public class BannersClientsPage extends BasePage {
     }
 
     public void findClientBannerHelperPage(){
-        selectOnClientPage();
+        selectClientPage();
         clickHelpButton();
     }
 

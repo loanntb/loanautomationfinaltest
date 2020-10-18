@@ -24,7 +24,7 @@ public class CategoriesPage extends BannersPage {
         return getText(DriverHelper.getWebDriver().findElement(successfulMessage));
     }
 
-    public void selectOnCategoryMenu() {
+    public void selectCategoryMenu() {
         clickOnMenuLevel2Tab(Constant.CONTENT, Constant.CATEGORIES);
     }
 
@@ -46,8 +46,8 @@ public class CategoriesPage extends BannersPage {
     /***
      *  archive the first Category in the article page
      */
-    public void archiveCategory() {
-        clickCheckbox();
+    public void archiveCategory(String value) {
+        clickCheckbox(value);
         clickArchiveButton();
     }
 

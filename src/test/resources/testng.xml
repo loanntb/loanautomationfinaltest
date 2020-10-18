@@ -4,13 +4,13 @@
     <test name="Chrome Test">
         <parameter name="browser" value="chrome"/>
         <classes>
-<!--            <class name="testcases.ArticleTests"/>-->
-<!--            <class name="testcases.ContactTests"/>-->
-<!--            <class name="testcases.BannerTests"/>-->
-<!--            <class name="testcases.BannersBannersTest"/>-->
+            <class name="testcases.ArticleTests"/>
+            <class name="testcases.ContactTests"/>
+            <class name="testcases.BannerTests"/>
+            <class name="testcases.BannersBannersTest"/>
             <class name="testcases.WebLinksTest"/>
-<!--            <class name="testcases.BannersClientsTest"/>-->
-<!--            <class name="testcases.CategoriesTest"></class>-->
+            <class name="testcases.BannersClientsTest"/>
+            <class name="testcases.CategoriesTest"></class>
         </classes>
 
     </test> <!-- Test -->

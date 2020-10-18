@@ -24,13 +24,16 @@ public class ArticleTests extends BaseTest {
         articlesPage.selectOnArticleMenu();
     }
 
-    @Test(testName = "TC_JOOMLA_ARTICLE_004", description = "Verify user can unpublish a published article ")
+    @Test(testName = "TC_JOOMLA_ARTICLE_004", description = "Verify user can unpublish a published article")
     public void tcJoomlaArticle004() {
+        Log.info("Verify user can unpublish a published article");
+        String title = DataHelper.randomString();
+
         Log.info("Click new button");
         articlesPage.clickNewButton();
 
         Log.info("Create a new article");
-        articlesPage.createNewArticle(DataHelper.randomString(), DataHelper.randomString(), DataHelper.randomString(), Constant.PUBLISHED_STATUS, Constant.SAMPLE_DATA_ARTICLES_CATEGORY);
+        articlesPage.createNewArticle(title, DataHelper.randomString(), DataHelper.randomString(), Constant.PUBLISHED_STATUS, Constant.SAMPLE_DATA_ARTICLES_CATEGORY);
 
         Log.info("Verify successful message");
         Assert.assertEquals(articlesPage.getTextSuccessfulMessage(), "Article saved.", "Cannot create a article");
@@ -39,28 +42,28 @@ public class ArticleTests extends BaseTest {
         bannersPage.selectArrowIDColumn();
 
         Log.info("Verify user can unpublish a published article");
-        articlesPage.unpublishArticle();
+        articlesPage.unpublishArticle(title);
 
         Log.info("Verify successful message ");
         Assert.assertEquals(articlesPage.getTextSuccessfulMessage(), "1 article unpublished.", "Cannot  unpublished a article.");
     }
 
-    @Test(testName = "TC_JOOMLA_ARTICLE_011", description = "User can sort the contact table by ID column")
-    public void tcJoomlaArticle011() {
-        Log.info("User can sort the article table by ID column");
-
-        Log.info("Click on ID column");
-        articlesPage.clickIDColumn();
-
-        Log.info("Verify Items ascending sorted the article table by ID column");
-        Assert.assertTrue(articlesPage.checkIdAscending(), "Items ascending sorted  is incorrectly");
-
-        Log.info("Click on ID column");
-        articlesPage.clickIDColumn();
-
-        Log.info("Verify Items reverse sorted the contact table by ID column");
-        Assert.assertTrue(articlesPage.checkIdReverse(), "Items reverse sorted  is incorrectly");
-    }
+//    @Test(testName = "TC_JOOMLA_ARTICLE_011", description = "User can sort the contact table by ID column")
+//    public void tcJoomlaArticle011() {
+//        Log.info("User can sort the article table by ID column");
+//
+//        Log.info("Click on ID column");
+//        articlesPage.clickIDColumn();
+//
+//        Log.info("Verify Items ascending sorted the article table by ID column");
+//        Assert.assertTrue(articlesPage.checkIdAscending(), "Items ascending sorted  is incorrectly");
+//
+//        Log.info("Click on ID column");
+//        articlesPage.clickIDColumn();
+//
+//        Log.info("Verify Items reverse sorted the contact table by ID column");
+//        Assert.assertTrue(articlesPage.checkIdReverse(), "Items reverse sorted  is incorrectly");
+//    }
 
 
 }

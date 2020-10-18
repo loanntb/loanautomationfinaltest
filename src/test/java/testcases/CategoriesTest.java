@@ -21,26 +21,28 @@ public class CategoriesTest extends BaseTest {
         loginPage.login(Constant.USER_NAME, Constant.PASSWORD);
 
         Log.info("Open categories manager page");
-        categoriesPage.selectOnCategoryMenu();
+        categoriesPage.selectCategoryMenu();
     }
 
     @Test(testName = "TC_JOOMLA_CATEGORY_MANAGER_005", description = "Verify that user can archive a category ")
     public void tcJoomplaCategoryManager005() {
         Log.info("Verify that user can archive a category");
+        String title = DataHelper.randomString();
 
         Log.info("Click on the new button");
         categoriesPage.clickNewButton();
 
         Log.info("Create a new article");
-        categoriesPage.createNewCategory(DataHelper.randomString());
+        categoriesPage.createNewCategory(title);
 
         Log.info("Verify successful message");
         Assert.assertEquals(categoriesPage.getTextSuccessfulMessage(), "Category saved.", "Cannot create a Category");
 
         Log.info("Sort the Category table by ID descending");
         categoriesPage.selectArrowIDColumn();
-        Log.info("Verify that user can archive a category");
-        categoriesPage.archiveCategory();
+
+        Log.info("Archive a category with title is " + title);
+        categoriesPage.archiveCategory(title);
 
         Log.info("Verify successful message ");
         Assert.assertEquals(categoriesPage.getTextSuccessfulMessage(), "1 category archived.", "Cannot  unpublish a archived.");

@@ -67,8 +67,8 @@ public class ArticlesPage extends BasePage {
     /***
      *  Publish the first article in the article page
      */
-    public void unpublishArticle() {
-        clickCheckbox();
+    public void unpublishArticle(String value) {
+        clickCheckbox(value);
         clickUnpublishButton();
     }
 

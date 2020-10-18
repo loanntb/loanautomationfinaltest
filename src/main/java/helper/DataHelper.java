@@ -11,7 +11,7 @@ public class DataHelper {
      * @return
      */
     public static String randomString() {
-        return  faker.lorem().sentence();
+        return  faker.letterify("???????");
     }
 
     /***

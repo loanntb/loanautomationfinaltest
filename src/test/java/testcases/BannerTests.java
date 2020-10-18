@@ -25,12 +25,13 @@ public class BannerTests extends BaseTest {
     @Test(testName = "TC_JOOMLA_BANNERS_004", description = "Verify that user can unpublish a banner")
     public void tcJoomlaBanners004() {
         Log.info("Verify that user can unpublish a banner");
+        String value = DataHelper.randomString();
 
         Log.info("Click on the new button");
         bannersPage.clickNewButton();
 
         Log.info("Create a new banner");
-        bannersPage.createNewBanner(DataHelper.randomString(), DataHelper.randomString(), Constant.PUBLISHED_STATUS, Constant.SAMPLE_DATA_BANNERS_CATEGORY);
+        bannersPage.createNewBanner(value, DataHelper.randomString(), Constant.PUBLISHED_STATUS, Constant.SAMPLE_DATA_BANNERS_CATEGORY);
 
         Log.info("Verify successful message");
         Assert.assertEquals(bannersPage.getTextSuccessfulMessage(), "Banner saved.", "Cannot create a banner");
@@ -38,8 +39,8 @@ public class BannerTests extends BaseTest {
         Log.info("Sort the banner table by ID descending");
         bannersPage.selectArrowIDColumn();
 
-        Log.info("Verify that user can unpublish a banner");
-        bannersPage.unpublishBanner();
+        Log.info("Unpublish a banner with title is " + value);
+        bannersPage.unpublishBanner(value);
 
         Log.info("Verify successful message ");
         Assert.assertEquals(bannersPage.getTextSuccessfulMessage(), "1 banner unpublished.", "Cannot unpublish a banner");

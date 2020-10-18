@@ -50,8 +50,8 @@ public class WebLinksPage extends BasePage {
     /***
      *  archive the first Category in the article page
      */
-    public void archiveWebLinks() {
-        clickCheckbox();
+    public void archiveWebLinks(String value) {
+        clickCheckbox(value);
         clickArchiveButton();
     }
 

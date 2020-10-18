@@ -16,7 +16,7 @@ public class BannersCategoriesPage extends BasePage {
     }
 
     //Method
-    public void selectOnCategoryPage() {
+    public void selectCategoryPage() {
         clickOnSideBarNav(Constant.COMPONENTS, Constant.BANNERS, Constant.CATEGORIES);
     }
 

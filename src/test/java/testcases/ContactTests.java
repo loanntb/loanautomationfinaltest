@@ -28,9 +28,13 @@ public class ContactTests extends BaseTest {
     @Test(testName = "TC_JOOMLA_CONTACTS_004", description = "Verify user can unpublish a published contact")
     public void tcJoomlaContacts004() {
         Log.info("Verify user can unpublish a published contact");
+        String title = DataHelper.randomString();
+
+        Log.info("Click on a new button");
+        contactsPagePage.clickNewButton();
 
         Log.info("Create a new contact");
-        contactsPagePage.createNewContact(DataHelper.randomString(), DataHelper.randomString(), Constant.PUBLISHED_STATUS, Constant.SAMPLE_DATA_CONTACT_CATEGORY);
+        contactsPagePage.createNewContact(title, DataHelper.randomString(), Constant.PUBLISHED_STATUS, Constant.SAMPLE_DATA_CONTACT_CATEGORY);
 
         Log.info("Verify successful message");
         Assert.assertEquals(contactsPagePage.getTextSuccessfulMessage(), "Contact saved.", "Cannot create a contact");
@@ -39,7 +43,7 @@ public class ContactTests extends BaseTest {
         bannerPage.selectArrowIDColumn();
 
         Log.info("Click on unpublish Contact button");
-        contactsPagePage.unpublishContact();
+        contactsPagePage.unpublishContact(title);
 
         Log.info("Verify successful message ");
         Assert.assertEquals(contactsPagePage.getTextSuccessfulMessage(), "1 contact unpublished.", "Cannot unpublish a contact");

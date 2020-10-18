@@ -22,7 +22,7 @@ public class BasePage {
     private By archiveButton = By.id("toolbar-archive");
     private By cancelButton = By.cssSelector(".button-cancel");
     private By saveAndNewButton = By.cssSelector(".button-save-new");
-    private By checkBox = By.cssSelector("tr:first-child input[name='cid[]']");
+    private String checkBox = "//div//td//a[normalize-space(text())='%s']/../..//..//preceding-sibling ::td[@class = 'center']/input[@type = 'checkbox']";
     private By status = By.cssSelector(".chzn-color-state.chzn-single");
     private String elementStatus = "//div[@class='chzn-drop']//li[contains(text(),'%s')]";
     private By category = By.cssSelector("#jform_catid_chzn .chzn-single");
@@ -88,8 +88,8 @@ public class BasePage {
         return DriverHelper.getWebDriver().findElement(saveAndNewButton);
     }
 
-    private WebElement getCheckBox() {
-        return DriverHelper.getWebDriver().findElement(checkBox);
+    private WebElement getCheckBox(String value) {
+        return DriverHelper.getWebDriver().findElement(By.xpath(String.format(checkBox, value)));
     }
 
     private WebElement getStatus() {
@@ -132,7 +132,7 @@ public class BasePage {
         return DriverHelper.getWebDriver().findElement(By.xpath(String.format(titleHelperPage, value)));
     }
 
-    private WebElement getPaginationList(){
+    private WebElement getPaginationList() {
         return DriverHelper.getWebDriver().findElement(paginationList);
     }
 
@@ -205,8 +205,8 @@ public class BasePage {
         getSaveAndCloseButton().click();
     }
 
-    public void clickCheckbox() {
-        getCheckBox().click();
+    public void clickCheckbox(String value) {
+        getCheckBox(value).click();
     }
 
     public void clickPublishButton() {
@@ -272,13 +272,14 @@ public class BasePage {
      * Check pagination list navigation is displayed or not
      * @return
      */
-    public boolean isPaginationListNavigationDisplayed(){
-        if(getPaginationList().isDisplayed()) {
+    public boolean isPaginationListNavigationDisplayed() {
+        if (getPaginationList().isDisplayed()) {
             return true;
         } else {
             return false;
         }
     }
+
     /***
      * Verify the table  by ID column
      */

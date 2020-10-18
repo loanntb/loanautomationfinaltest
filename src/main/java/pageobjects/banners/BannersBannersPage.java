@@ -20,7 +20,7 @@ public class BannersBannersPage extends BasePage {
         return DriverHelper.getWebDriver().findElement(client);
     }
     //Method
-    public void selectOnBannersPage() {
+    public void selectBannersPage() {
         clickOnSideBarNav(Constant.COMPONENTS, Constant.BANNERS, Constant.BANNERS);
     }
     private WebElement getValueClient(String value) {
@@ -58,8 +58,8 @@ public class BannersBannersPage extends BasePage {
     /***
      *  Unpublish the first Banner in the Banner page
      */
-    public void unpublishBanner() {
-        clickCheckbox();
+    public void unpublishBanner(String value) {
+        clickCheckbox(value);
         clickUnpublishButton();
     }
 }
