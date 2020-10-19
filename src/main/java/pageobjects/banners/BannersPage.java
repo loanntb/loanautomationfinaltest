@@ -27,7 +27,7 @@ public class BannersPage extends BasePage {
         return getText(DriverHelper.getWebDriver().findElement(successfulMessage));
     }
 
-    public void selectOnBannerMenu() {
+    public void selectBannerMenu() {
         clickOnMenuLevel2Tab(Constant.COMPONENTS, Constant.BANNERS);
     }
     private void enterTitle(String title) {

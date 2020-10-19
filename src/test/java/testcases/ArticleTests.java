@@ -21,7 +21,7 @@ public class ArticleTests extends BaseTest {
         loginPage.login(Constant.USER_NAME, Constant.PASSWORD);
 
         Log.info("Open articles page");
-        articlesPage.selectOnArticleMenu();
+        articlesPage.selectArticleMenu();
     }
 
     @Test(testName = "TC_JOOMLA_ARTICLE_004", description = "Verify user can unpublish a published article")
@@ -48,22 +48,22 @@ public class ArticleTests extends BaseTest {
         Assert.assertEquals(articlesPage.getTextSuccessfulMessage(), "1 article unpublished.", "Cannot  unpublished a article.");
     }
 
-//    @Test(testName = "TC_JOOMLA_ARTICLE_011", description = "User can sort the contact table by ID column")
-//    public void tcJoomlaArticle011() {
-//        Log.info("User can sort the article table by ID column");
-//
-//        Log.info("Click on ID column");
-//        articlesPage.clickIDColumn();
-//
-//        Log.info("Verify Items ascending sorted the article table by ID column");
-//        Assert.assertTrue(articlesPage.checkIdAscending(), "Items ascending sorted  is incorrectly");
-//
-//        Log.info("Click on ID column");
-//        articlesPage.clickIDColumn();
-//
-//        Log.info("Verify Items reverse sorted the contact table by ID column");
-//        Assert.assertTrue(articlesPage.checkIdReverse(), "Items reverse sorted  is incorrectly");
-//    }
+    @Test(testName = "TC_JOOMLA_ARTICLE_011", description = "User can sort the contact table by ID column")
+    public void tcJoomlaArticle011() {
+        Log.info("User can sort the article table by ID column");
+
+        Log.info("Click on ID column");
+        articlesPage.clickIDColumn();
+
+        Log.info("Verify Items ascending sorted the article table by ID column");
+        Assert.assertTrue(articlesPage.checkIdAscending(), "Items ascending sorted  is incorrectly");
+
+        Log.info("Click on ID column");
+        articlesPage.clickIDColumn();
+
+        Log.info("Verify Items reverse sorted the contact table by ID column");
+        Assert.assertTrue(articlesPage.checkIdReverse(), "Items reverse sorted  is incorrectly");
+    }
 
 
 }

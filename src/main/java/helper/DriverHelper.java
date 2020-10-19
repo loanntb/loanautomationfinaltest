@@ -126,18 +126,4 @@ public class DriverHelper {
         return DriverHelper.getWebDriver().getCurrentUrl();
     }
 
-//    /**
-//     * Use for Help page
-//     *
-//     * @param title New web title after action click or open
-//     * @return true if it has two browser windows and the title of new window match
-//     */
-//    public static boolean doesNewWindowDisplay(String title, int numberWindow) {
-//        // Get all Open Tabs
-//        ArrayList<String> tabHandles = new ArrayList<String>(driver.getWindowHandles());
-//        // handel Firefox
-//        WebDriverWait wait = new WebDriverWait(driver.switchTo().window(tabHandles.get(tabHandles.size() - 1)), Constant.TIME_OUT_SHORT);     wait.until(ExpectedConditions.titleContains(title));
-//        return tabHandles.size() == numberWindow &&
-//                driver.switchTo().window(tabHandles.get(tabHandles.size() - 1)).getTitle().equals(title);
-//    }
 }

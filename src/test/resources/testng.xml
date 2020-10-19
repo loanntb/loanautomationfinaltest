@@ -17,25 +17,25 @@
     <test name="FirefoxTest">
         <parameter name="browser" value="firefox"/>
         <classes>
-<!--            <class name="testcases.ArticleTests"/>-->
-<!--            <class name="testcases.ContactTests"/>-->
-<!--            <class name="testcases.BannerTests"/>-->
-<!--            <class name="testcases.BannersBannersTest"/>-->
-<!--            <class name="testcases.WebLinksTest"/>-->
-<!--            <class name="testcases.BannersClientsTest"/>-->
-<!--            <class name="testcases.CategoriesTest"></class>-->
+            <class name="testcases.ArticleTests"/>
+            <class name="testcases.ContactTests"/>
+            <class name="testcases.BannerTests"/>
+            <class name="testcases.BannersBannersTest"/>
+            <class name="testcases.WebLinksTest"/>
+            <class name="testcases.BannersClientsTest"/>
+            <class name="testcases.CategoriesTest"></class>
         </classes>
     </test>
     <test name="EdgeTest">
         <parameter name="browser" value="edge"/>
         <classes>
-<!--            <class name="testcases.ArticleTests"/>-->
-<!--            <class name="testcases.ContactTests"/>-->
-<!--            <class name="testcases.BannerTests"/>-->
-<!--            <class name="testcases.BannersBannersTest"/>-->
-<!--            <class name="testcases.WebLinksTest"/>-->
-<!--            <class name="testcases.BannersClientsTest"/>-->
-<!--            <class name="testcases.CategoriesTest"></class>-->
+            <class name="testcases.ArticleTests"/>
+            <class name="testcases.ContactTests"/>
+            <class name="testcases.BannerTests"/>
+            <class name="testcases.BannersBannersTest"/>
+            <class name="testcases.WebLinksTest"/>
+            <class name="testcases.BannersClientsTest"/>
+            <class name="testcases.CategoriesTest"></class>
         </classes>
     </test>
 

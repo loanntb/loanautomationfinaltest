@@ -22,7 +22,7 @@ public class ContactTests extends BaseTest {
         loginPage.login(Constant.USER_NAME, Constant.PASSWORD);
 
         Log.info("Open contacts page");
-        contactsPagePage.selectOnContactMenu();
+        contactsPagePage.selectContactMenu();
     }
 
     @Test(testName = "TC_JOOMLA_CONTACTS_004", description = "Verify user can unpublish a published contact")

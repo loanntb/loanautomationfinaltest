@@ -20,7 +20,7 @@
                 <configuration>
                     <suiteXmlFiles>
                         <!--suppress UnresolvedMavenProperty -->
-                        <suiteXmlFile>${testing}</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

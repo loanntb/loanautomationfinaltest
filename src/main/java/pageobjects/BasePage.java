@@ -147,7 +147,7 @@ public class BasePage {
     //Methods
 
     /***
-     * Select on Menu Level 1 Tabs
+     * Select  Menu Level 1 Tabs
      * @param value
      */
     public void clickOnMenuLevel1Tab(String value) {
@@ -175,7 +175,7 @@ public class BasePage {
     }
 
     /***
-     * Select on Menu Level 3 Tabs
+     * Select  Menu Level 3 Tabs
      * @param level1
      * @param level2
      * @param level3
@@ -187,7 +187,7 @@ public class BasePage {
     }
 
     /***
-     * Select on side bar Nav - sub menu
+     * Select side bar Nav - sub menu
      * @param level1
      * @param level2
      * @param navBar

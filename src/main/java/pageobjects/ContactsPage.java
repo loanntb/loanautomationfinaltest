@@ -26,7 +26,7 @@ public class ContactsPage extends BasePage {
         return getText(DriverHelper.getWebDriver().findElement(successfulMessage));
     }
 
-    public void selectOnContactMenu() {
+    public void selectContactMenu() {
         clickOnMenuLevel2Tab(Constant.COMPONENTS, Constant.CONTACTS);
     }
 

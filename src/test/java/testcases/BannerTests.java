@@ -19,7 +19,7 @@ public class BannerTests extends BaseTest {
         loginPage.login(Constant.USER_NAME, Constant.PASSWORD);
 
         Log.info("Open banners page");
-        bannersPage.selectOnBannerMenu();
+        bannersPage.selectBannerMenu();
     }
 
     @Test(testName = "TC_JOOMLA_BANNERS_004", description = "Verify that user can unpublish a banner")

@@ -32,7 +32,7 @@ public class ArticlesPage extends BasePage {
         return getText(DriverHelper.getWebDriver().findElement(successfulMessage));
     }
 
-    public void selectOnArticleMenu() {
+    public void selectArticleMenu() {
         clickOnMenuLevel2Tab(Constant.CONTENT, Constant.ARTICLES);
     }
 
